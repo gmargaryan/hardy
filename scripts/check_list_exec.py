@@ -72,8 +72,10 @@ def check_list_exec(credentials,host_parameters, debug):
 #### yaml parsing of benchmarks ####
 
   yaml_version = yaml.__version__
+  m = re.match ('(\d(\.\d)?)', yaml_version)
+  yaml_ver = m.group(1)
 
-  if (float(yaml_version) < 5.1):
+  if (float(yaml_ver) < 5.1):
     yaml_data_check_list = yaml.load(data_check_list)
     yaml_data_check_output = yaml.load(data_check_output)
   else:
