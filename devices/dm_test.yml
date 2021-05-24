@@ -1,5 +1,5 @@
 hosts:
-- ip_address: '10.251.1.7'
+- ip_address: '1.1.1.'
   status: 'yes'
   device_type: 'cisco_xe'
   port: '22'

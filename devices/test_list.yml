@@ -1,5 +1,5 @@
 hosts:
-- ip_address: '192.168.31.136'
+- ip_address: '1.1.1.1'
   status: 'yes'
   device_type: 'cisco_ios'
   port: '22'
@@ -20,7 +20,7 @@ hosts:
     - name:
     mgmt:
     - name: 'Ethernet0/3'
-- ip_address: '192.168.31.138'
+- ip_address: '2.2.2.2'
   status: 'no'
   device_type: 'cisco_asa'
   port: '22'
