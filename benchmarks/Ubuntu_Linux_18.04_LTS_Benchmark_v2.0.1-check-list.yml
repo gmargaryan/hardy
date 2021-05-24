@@ -1,0 +1,1538 @@
+check_list:
+- section: "1 Initial Setup\n 1.1 Filesystem Configuration 1.1.1 Disable unused filesystems"
+  description:
+  check:
+  - name: "Ensure_mounting_of_cramfs_filesystems_is_disabled"
+    description: "1.1.1.1 Ensure mounting of cramfs filesystems is disabled"
+    score: 1
+    rule: "1.1.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mounting_of_freevxfs_filesystems_is_disabled"
+    description: "1.1.1.2 Ensure mounting of freevxfs filesystems is disabled"
+    score: 1
+    rule: "1.1.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mounting_of_jffs2_filesystems_is_disabled"
+    description: "1.1.1.3 Ensure mounting of jffs2 filesystems is disabled"
+    score: 1
+    rule: "1.1.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mounting_of_hfs_filesystems_is_disabled"
+    description: "1.1.1.4 Ensure mounting of hfs filesystems is disabled"
+    score: 1
+    rule: "1.1.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mounting_of_hfsplus_filesystems_is_disabled"
+    description: "1.1.1.5 Ensure mounting of hfsplus filesystems is disabled"
+    score: 1
+    rule: "1.1.1.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mounting_of_squashfs_filesystems_is_disabled"
+    description: "1.1.1.6 Ensure mounting of squashfs filesystems is disabled"
+    score: 1
+    rule: "1.1.1.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mounting_of_udf_filesystems_is_disabled"
+    description: "1.1.1.7 Ensure mounting of udf filesystems is disabled"
+    score: 1
+    rule: "1.1.1.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mounting_of_FAT_filesystems_is_limited"
+    description: "1.1.1.8 Ensure mounting of FAT filesystems is limited"
+    score: 0
+    rule: "1.1.1.8"
+    level: 2
+    status: "yes"
+  - name: "Ensure_/tmp_is_configured"
+    description: "1.1.2 Ensure /tmp is configured"
+    score: 1
+    rule: "1.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nodev_option_set_on_/tmp_partition"
+    description: "1.1.3 Ensure nodev option set on /tmp partition"
+    score: 1
+    rule: "1.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nosuid_option_set_on_/tmp_partition"
+    description: "1.1.4 Ensure nosuid option set on /tmp partition"
+    score: 1
+    rule: "1.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_noexec_option_set_on_/tmp_partition"
+    description: "1.1.5 Ensure noexec option set on /tmp partition"
+    score: 1
+    rule: "1.1.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_separate_partition_exists_for_/var"
+    description: "1.1.6 Ensure separate partition exists for /var"
+    score: 1
+    rule: "1.1.6"
+    level: 2
+    status: "yes"
+  - name: "Ensure_separate_partition_exists_for_/var/tmp"
+    description: "1.1.7 Ensure separate partition exists for /var/tmp"
+    score: 1
+    rule: "1.1.7"
+    level: 2
+    status: "yes"
+  - name: "Ensure_nodev_option_set_on_/var/tmp_partition"
+    description: "1.1.8 Ensure nodev option set on /var/tmp partition"
+    score: 1
+    rule: "1.1.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nosuid_option_set_on_/var/tmp_partition"
+    description: "1.1.9 Ensure nosuid option set on /var/tmp partition"
+    score: 1
+    rule: "1.1.9"
+    level: 1
+    status: "yes"
+  - name: "Ensure_noexec_option_set_on_/var/tmp_partition"
+    description: "1.1.10 Ensure noexec option set on /var/tmp partition"
+    score: 1
+    rule: "1.1.10"
+    level: 1
+    status: "yes"
+  - name: "Ensure_separate_partition_exists_for_/var/log"
+    description: "1.1.11 Ensure separate partition exists for /var/log"
+    score: 1
+    rule: "1.1.11"
+    level: 2
+    status: "yes"
+  - name: "Ensure_separate_partition_exists_for_/var/log/audit"
+    description: "1.1.12 Ensure separate partition exists for /var/log/audit"
+    score: 1
+    rule: "1.1.12"
+    level: 2
+    status: "yes"
+  - name: "Ensure_separate_partition_exists_for_/home"
+    description: "1.1.13 Ensure separate partition exists for /home"
+    score: 1
+    rule: "1.1.13"
+    level: 2
+    status: "yes"
+  - name: "Ensure_nodev_option_set_on_/home_partition"
+    description: "1.1.14 Ensure nodev option set on /home partition"
+    score: 1
+    rule: "1.1.14"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nodev_option_set_on_/dev/shm_partition"
+    description: "1.1.15 Ensure nodev option set on /dev/shm partition"
+    score: 1
+    rule: "1.1.15"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nosuid_option_set_on_/dev/shm_partition"
+    description: "1.1.16 Ensure nosuid option set on /dev/shm partition"
+    score: 1
+    rule: "1.1.16"
+    level: 1
+    status: "yes"
+  - name: "Ensure_noexec_option_set_on_/dev/shm_partition"
+    description: "1.1.17 Ensure noexec option set on /dev/shm partition"
+    score: 1
+    rule: "1.1.17"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nodev_option_set_on_removable_media_partitions"
+    description: "1.1.18 Ensure nodev option set on removable media partitions"
+    score: 0
+    rule: "1.1.18"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nosuid_option_set_on_removable_media_partitions"
+    description: "1.1.19 Ensure nosuid option set on removable media partitions"
+    score: 0
+    rule: "1.1.19"
+    level: 1
+    status: "yes"
+  - name: "Ensure_noexec_option_set_on_removable_media_partitions"
+    description: "1.1.20 Ensure noexec option set on removable media partitions"
+    score: 0
+    rule: "1.1.20"
+    level: 1
+    status: "yes"
+  - name: "Ensure_sticky_bit_is_set_on_all_world-writable_directories"
+    description: "1.1.21 Ensure sticky bit is set on all world-writable directories"
+    score: 1
+    rule: "1.1.21"
+    level: 1
+    status: "yes"
+  - name: "Disable_Automounting"
+    description: "1.1.22 Disable Automounting"
+    score: 1
+    rule: "1.1.22"
+    level: 2
+    status: "yes"
+  - name: "Disable_USB_Storage"
+    description: "1.1.23 Disable USB Storage"
+    score: 1
+    rule: "1.1.23"
+    level: 2
+    status: "yes"
+- section: " 1.2 Configure Software Updates"
+  description:
+  check:
+  - name: "Ensure_package_manager_repositories_are_configured"
+    description: "1.2.1 Ensure package manager repositories are configured"
+    score: 0
+    rule: "1.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_GPG_keys_are_configured"
+    description: "1.2.2 Ensure GPG keys are configured"
+    score: 0
+    rule: "1.2.2"
+    level: 1
+    status: "yes"
+- section: " 1.3 Configure sudo"
+  description:
+  check:
+  - name: "Ensure_sudo_is_installed"
+    description: "1.3.1 Ensure sudo is installed"
+    score: 1
+    rule: "1.3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_sudo_commands_use_pty"
+    description: "1.3.2 Ensure sudo commands use pty"
+    score: 1
+    rule: "1.3.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_sudo_log_file_exists"
+    description: "1.3.3 Ensure sudo log file exists"
+    score: 1
+    rule: "1.3.3"
+    level: 1
+    status: "yes"
+- section: " 1.4 Filesystem Integrity Checking"
+  description:
+  check:
+  - name: "Ensure_AIDE_is_installed"
+    description: "1.4.1 Ensure AIDE is installed"
+    score: 1
+    rule: "1.4.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_filesystem_integrity_is_regularly_checked"
+    description: "1.4.2 Ensure filesystem integrity is regularly checked"
+    score: 1
+    rule: "1.4.2"
+    level: 1
+    status: "yes"
+- section: " 1.5 Secure Boot Settings"
+  description:
+  check:
+  - name: "Ensure_permissions_on_bootloader_config_are_configured"
+    description: "1.5.1 Ensure permissions on bootloader config are configured"
+    score: 1
+    rule: "1.5.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_bootloader_password_is_set"
+    description: "1.5.2 Ensure bootloader password is set"
+    score: 1
+    rule: "1.5.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_authentication_required_for_single_user_mode"
+    description: "1.5.3 Ensure authentication required for single user mode"
+    score: 1
+    rule: "1.5.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_interactive_boot_is_not_enabled"
+    description: "1.5.4 Ensure interactive boot is not enabled"
+    score: 0
+    rule: "1.5.4"
+    level: 1
+    status: "yes"
+- section: " 1.6 Additional Process Hardening"
+  description:
+  check:
+  - name: "Ensure_XD/NX_support_is_enabled"
+    description: "1.6.1 Ensure XD/NX support is enabled"
+    score: 1
+    rule: "1.6.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_address_space_layout_randomization_(ASLR)_is_enabled"
+    description: "1.6.2 Ensure address space layout randomization (ASLR) is enabled"
+    score: 1
+    rule: "1.6.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_prelink_is_disabled"
+    description: "1.6.3 Ensure prelink is disabled"
+    score: 1
+    rule: "1.6.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_core_dumps_are_restricted"
+    description: "1.6.4 Ensure core dumps are restricted"
+    score: 1
+    rule: "1.6.4"
+    level: 1
+    status: "yes"
+- section: " 1.7 Mandatory Access Control\n  1.7.1 Configure AppArmor"
+  description:
+  check:
+  - name: "Ensure_AppArmor_is_installed"
+    description: "1.7.1.1 Ensure AppArmor is installed"
+    score: 1
+    rule: "1.7.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_AppArmor_is_enabled_in_the_bootloader_configuration"
+    description: "1.7.1.2 Ensure AppArmor is enabled in the bootloader configuration"
+    score: 1
+    rule: "1.7.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_all_AppArmor_Profiles_are_in_enforce_or_complain_mode"
+    description: "1.7.1.3 Ensure all AppArmor Profiles are in enforce or complain mode"
+    score: 1
+    rule: "1.7.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_all_AppArmor_Profiles_are_enforcing"
+    description: "1.7.1.4 Ensure all AppArmor Profiles are enforcing"
+    score: 1
+    rule: "1.7.1.4"
+    level: 2
+    status: "yes"
+- section: " 1.8 Warning Banners\n  1.8.1 Command Line Warning Banners"
+  description:
+  check:
+  - name: "Ensure_message_of_the_day_is_configured_properly"
+    description: "1.8.1.1 Ensure message of the day is configured properly"
+    score: 1
+    rule: "1.8.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_local_login_warning_banner_is_configured_properly"
+    description: "1.8.1.2 Ensure local login warning banner is configured properly"
+    score: 1
+    rule: "1.8.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_remote_login_warning_banner_is_configured_properly"
+    description: "1.8.1.3 Ensure remote login warning banner is configured properly"
+    score: 1
+    rule: "1.8.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/motd_are_configured"
+    description: "1.8.1.4 Ensure permissions on /etc/motd are configured"
+    score: 1
+    rule: "1.8.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/issue_are_configured"
+    description: "1.8.1.5 Ensure permissions on /etc/issue are configured"
+    score: 1
+    rule: "1.8.1.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/issue.net_are_configured"
+    description: "1.8.1.6 Ensure permissions on /etc/issue.net are configured"
+    score: 1
+    rule: "1.8.1.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_GDM_login_banner_is_configured"
+    description: "1.8.2 Ensure GDM login banner is configured"
+    score: 1
+    rule: "1.8.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_updates,_patches,_and_additional_security_software_are_installed"
+    description: "1.9 Ensure updates, patches, and additional security software are installed"
+    score: 0
+    rule: "1.9"
+    level: 1
+    status: "yes"
+- section: "2 Services\n 2.1 inetd Services"
+  description:
+  check:
+  - name: "Ensure_xinetd_is_not_installed"
+    description: "2.1.1 Ensure xinetd is not installed"
+    score: 1
+    rule: "2.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_openbsd-inetd_is_not_installed"
+    description: "2.1.2 Ensure openbsd-inetd is not installed"
+    score: 1
+    rule: "2.1.2"
+    level: 1
+    status: "yes"
+- section: " 2.2 Special Purpose Services\n  2.2.1 Time Synchronization"
+  description:
+  check:
+  - name: "Ensure_time_synchronization_is_in_use"
+    description: "2.2.1.1 Ensure time synchronization is in use"
+    score: 1
+    rule: "2.2.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_systemd-timesyncd_is_configured"
+    description: "2.2.1.2 Ensure systemd-timesyncd is configured"
+    score: 0
+    rule: "2.2.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_chrony_is_configured"
+    description: "2.2.1.3 Ensure chrony is configured"
+    score: 1
+    rule: "2.2.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_ntp_is_configured"
+    description: "2.2.1.4 Ensure ntp is configured"
+    score: 1
+    rule: "2.2.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_X_Window_System_is_not_installed"
+    description: "2.2.2 Ensure X Window System is not installed"
+    score: 1
+    rule: "2.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Avahi_Server_is_not_enabled"
+    description: "2.2.3 Ensure Avahi Server is not enabled"
+    score: 1
+    rule: "2.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_CUPS_is_not_enabled"
+    description: "2.2.4 Ensure CUPS is not enabled"
+    score: 1
+    rule: "2.2.4"
+    level: 2
+    status: "yes"
+  - name: "Ensure_DHCP_Server_is_not_enabled"
+    description: "2.2.5 Ensure DHCP Server is not enabled"
+    score: 1
+    rule: "2.2.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_LDAP_server_is_not_enabled"
+    description: "2.2.6 Ensure LDAP server is not enabled"
+    score: 1
+    rule: "2.2.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_NFS_and_RPC_are_not_enabled"
+    description: "2.2.7 Ensure NFS and RPC are not enabled"
+    score: 1
+    rule: "2.2.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_DNS_Server_is_not_enabled"
+    description: "2.2.8 Ensure DNS Server is not enabled"
+    score: 1
+    rule: "2.2.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_FTP_Server_is_not_enabled"
+    description: "2.2.9 Ensure FTP Server is not enabled"
+    score: 1
+    rule: "2.2.9"
+    level: 1
+    status: "yes"
+  - name: "Ensure_HTTP_server_is_not_enabled"
+    description: "2.2.10 Ensure HTTP server is not enabled"
+    score: 1
+    rule: "2.2.10"
+    level: 1
+    status: "yes"
+  - name: "Ensure_email_services_are_not_enabled"
+    description: "2.2.11 Ensure email services are not enabled"
+    score: 1
+    rule: "2.2.11"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Samba_is_not_enabled"
+    description: "2.2.12 Ensure Samba is not enabled"
+    score: 1
+    rule: "2.2.12"
+    level: 1
+    status: "yes"
+  - name: "Ensure_HTTP_Proxy_Server_is_not_enabled"
+    description: "2.2.13 Ensure HTTP Proxy Server is not enabled"
+    score: 1
+    rule: "2.2.13"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SNMP_Server_is_not_enabled"
+    description: "2.2.14 Ensure SNMP Server is not enabled"
+    score: 1
+    rule: "2.2.14"
+    level: 1
+    status: "yes"
+  - name: "Ensure_mail_transfer_agent_is_configured_for_local-only_mode"
+    description: "2.2.15 Ensure mail transfer agent is configured for local-only mode"
+    score: 1
+    rule: "2.2.15"
+    level: 1
+    status: "yes"
+  - name: "Ensure_rsync_service_is_not_enabled"
+    description: "2.2.16 Ensure rsync service is not enabled"
+    score: 1
+    rule: "2.2.16"
+    level: 1
+    status: "yes"
+  - name: "Ensure_NIS_Server_is_not_enabled"
+    description: "2.2.17 Ensure NIS Server is not enabled"
+    score: 1
+    rule: "2.2.17"
+    level: 1
+    status: "yes"
+- section: " 2.3 Service Clients"
+  description:
+  check:
+  - name: "Ensure_NIS_Client_is_not_installed"
+    description: "2.3.1 Ensure NIS Client is not installed"
+    score: 1
+    rule: "2.3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_rsh_client_is_not_installed"
+    description: "2.3.2 Ensure rsh client is not installed"
+    score: 1
+    rule: "2.3.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_talk_client_is_not_installed"
+    description: "2.3.3 Ensure talk client is not installed"
+    score: 1
+    rule: "2.3.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_telnet_client_is_not_installed"
+    description: "2.3.4 Ensure telnet client is not installed"
+    score: 1
+    rule: "2.3.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_LDAP_client_is_not_installed"
+    description: "2.3.5 Ensure LDAP client is not installed"
+    score: 1
+    rule: "2.3.5"
+    level: 1
+    status: "yes"
+- section: "3 Network Configuration\n 3.1 Network Parameters (Host Only)"
+  description:
+  check:
+  - name: "Ensure_packet_redirect_sending_is_disabled"
+    description: "3.1.1 Ensure packet redirect sending is disabled"
+    score: 1
+    rule: "3.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_IP_forwarding_is_disabled"
+    description: "3.1.2 Ensure IP forwarding is disabled"
+    score: 1
+    rule: "3.1.2"
+    level: 1
+    status: "yes"
+- section: " 3.2 Network Parameters (Host and Router)"
+  description:
+  check:
+  - name: "Ensure_source_routed_packets_are_not_accepted"
+    description: "3.2.1 Ensure source routed packets are not accepted"
+    score: 1
+    rule: "3.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_ICMP_redirects_are_not_accepted"
+    description: "3.2.2 Ensure ICMP redirects are not accepted"
+    score: 1
+    rule: "3.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_secure_ICMP_redirects_are_not_accepted"
+    description: "3.2.3 Ensure secure ICMP redirects are not accepted"
+    score: 1
+    rule: "3.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_suspicious_packets_are_logged"
+    description: "3.2.4 Ensure suspicious packets are logged"
+    score: 1
+    rule: "3.2.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_broadcast_ICMP_requests_are_ignored"
+    description: "3.2.5 Ensure broadcast ICMP requests are ignored"
+    score: 1
+    rule: "3.2.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_bogus_ICMP_responses_are_ignored"
+    description: "3.2.6 Ensure bogus ICMP responses are ignored"
+    score: 1
+    rule: "3.2.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Reverse_Path_Filtering_is_enabled"
+    description: "3.2.7 Ensure Reverse Path Filtering is enabled"
+    score: 1
+    rule: "3.2.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_TCP_SYN_Cookies_is_enabled"
+    description: "3.2.8 Ensure TCP SYN Cookies is enabled"
+    score: 1
+    rule: "3.2.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_IPv6_router_advertisements_are_not_accepted"
+    description: "3.2.9 Ensure IPv6 router advertisements are not accepted"
+    score: 1
+    rule: "3.2.9"
+    level: 1
+    status: "yes"
+- section: " 3.3 TCP Wrappers"
+  description:
+  check:
+  - name: "Ensure_TCP_Wrappers_is_installed"
+    description: "3.3.1 Ensure TCP Wrappers is installed"
+    score: 0
+    rule: "3.3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_/etc/hosts.allow_is_configured"
+    description: "3.3.2 Ensure /etc/hosts.allow is configured"
+    score: 0
+    rule: "3.3.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_/etc/hosts.deny_is_configured"
+    description: "3.3.3 Ensure /etc/hosts.deny is configured"
+    score: 0
+    rule: "3.3.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/hosts.allow_are_configured"
+    description: "3.3.4 Ensure permissions on /etc/hosts.allow are configured"
+    score: 1
+    rule: "3.3.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/hosts.deny_are_configured"
+    description: "3.3.5 Ensure permissions on /etc/hosts.deny are configured"
+    score: 1
+    rule: "3.3.5"
+    level: 1
+    status: "yes"
+- section: " 3.4 Uncommon Network Protocols"
+  description:
+  check:
+  - name: "Ensure_DCCP_is_disabled"
+    description: "3.4.1 Ensure DCCP is disabled"
+    score: 1
+    rule: "3.4.1"
+    level: 2
+    status: "yes"
+  - name: "Ensure_SCTP_is_disabled"
+    description: "3.4.2 Ensure SCTP is disabled"
+    score: 1
+    rule: "3.4.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_RDS_is_disabled"
+    description: "3.4.3 Ensure RDS is disabled"
+    score: 1
+    rule: "3.4.3"
+    level: 2
+    status: "yes"
+  - name: "Ensure_TIPC_is_disabled"
+    description: "3.4.4 Ensure TIPC is disabled"
+    score: 1
+    rule: "3.4.4"
+    level: 2
+    status: "yes"
+- section: " 3.5 Firewall Configuration\n  3.5.1 Ensure Firewall software is installed"
+  description:
+  check:
+  - name: "Ensure_a_Firewall_package_is_installed"
+    description: "3.5.1.1 Ensure a Firewall package is installed"
+    score: 1
+    rule: "3.5.1.1"
+    level: 1
+    status: "yes"
+- section: "  3.5.2 Configure UncomplicatedFirewall"
+  description:
+  check:
+  - name: "Ensure_ufw_service_is_enabled"
+    description: "3.5.2.1 Ensure ufw service is enabled"
+    score: 1
+    rule: "3.5.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_default_deny_firewall_policy"
+    description: "3.5.2.2 Ensure default deny firewall policy"
+    score: 1
+    rule: "3.5.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_loopback_traffic_is_configured"
+    description: "3.5.2.3 Ensure loopback traffic is configured"
+    score: 1
+    rule: "3.5.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_outbound_connections_are_configured"
+    description: "3.5.2.4 Ensure outbound connections are configured"
+    score: 0
+    rule: "3.5.2.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_firewall_rules_exist_for_all_open_ports"
+    description: "3.5.2.5 Ensure firewall rules exist for all open ports"
+    score: 0
+    rule: "3.5.2.5"
+    level: 1
+    status: "yes"
+- section: "  3.5.3 Configure nftables"
+  description:
+  check:
+  - name: "Ensure_iptables_are_flushed"
+    description: "3.5.3.1 Ensure iptables are flushed"
+    score: 0
+    rule: "3.5.3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_a_table_exists"
+    description: "3.5.3.2 Ensure a table exists"
+    score: 1
+    rule: "3.5.3.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_base_chains_exist"
+    description: "3.5.3.3 Ensure base chains exist"
+    score: 1
+    rule: "3.5.3.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_loopback_traffic_is_configured_1"
+    description: "3.5.3.4 Ensure loopback traffic is configured"
+    score: 1
+    rule: "3.5.3.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_outbound_and_established_connections_are_configured"
+    description: "3.5.3.5 Ensure outbound and established connections are configured"
+    score: 0
+    rule: "3.5.3.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_default_deny_firewall_policy_1"
+    description: "3.5.3.6 Ensure default deny firewall policy"
+    score: 1
+    rule: "3.5.3.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nftables_service_is_enabled"
+    description: "3.5.3.7 Ensure nftables service is enabled"
+    score: 1
+    rule: "3.5.3.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_nftables_rules_are_permanent"
+    description: "3.5.3.8 Ensure nftables rules are permanent"
+    score: 1
+    rule: "3.5.3.8"
+    level: 1
+    status: "yes"
+- section: "  3.5.4 Configure iptables\n   3.5.4.1 Configure IPv4 iptables"
+  description:
+  check:
+  - name: "Ensure_default_deny_firewall_policy_2"
+    description: "3.5.4.1.1 Ensure default deny firewall policy"
+    score: 1
+    rule: "3.5.4.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_loopback_traffic_is_configured_2"
+    description: "3.5.4.1.2 Ensure loopback traffic is configured"
+    score: 1
+    rule: "3.5.4.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_outbound_and_established_connections_are_configured_1"
+    description: "3.5.4.1.3 Ensure outbound and established connections are configured"
+    score: 0
+    rule: "3.5.4.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_firewall_rules_exist_for_all_open_ports_1"
+    description: "3.5.4.1.4 Ensure firewall rules exist for all open ports"
+    score: 1
+    rule: "3.5.4.1.4"
+    level: 1
+    status: "yes"
+- section: "   3.5.4.2 Configure IPv6 ip6tables"
+  description:
+  check:
+  - name: "Ensure_IPv6_default_deny_firewall_policy"
+    description: "3.5.4.2.1 Ensure IPv6 default deny firewall policy"
+    score: 1
+    rule: "3.5.4.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_IPv6_loopback_traffic_is_configured"
+    description: "3.5.4.2.2 Ensure IPv6 loopback traffic is configured"
+    score: 1
+    rule: "3.5.4.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_IPv6_outbound_and_established_connections_are_configured"
+    description: "3.5.4.2.3 Ensure IPv6 outbound and established connections are configured"
+    score: 0
+    rule: "3.5.4.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_IPv6_firewall_rules_exist_for_all_open_ports"
+    description: "3.5.4.2.4 Ensure IPv6 firewall rules exist for all open ports"
+    score: 0
+    rule: "3.5.4.2.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_wireless_interfaces_are_disabled"
+    description: "3.6 Ensure wireless interfaces are disabled"
+    score: 1
+    rule: "3.6"
+    level: 2
+    status: "yes"
+  - name: "Disable_IPv6"
+    description: "3.7 Disable IPv6"
+    score: 0
+    rule: "3.7"
+    level: 2
+    status: "yes"
+- section: "4 Logging and Auditing\n 4.1 Configure System Accounting (auditd)\n  4.1.1 Ensure auditing is enabled"
+  description:
+  check:
+  - name: "Ensure_auditd_is_installed"
+    description: "4.1.1.1 Ensure auditd is installed"
+    score: 1
+    rule: "4.1.1.1"
+    level: 2
+    status: "yes"
+  - name: "Ensure_auditd_service_is_enabled"
+    description: "4.1.1.2 Ensure auditd service is enabled"
+    score: 1
+    rule: "4.1.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_auditing_for_processes_that_start_prior_to_auditd_is_enabled"
+    description: "4.1.1.3 Ensure auditing for processes that start prior to auditd is enabled"
+    score: 1
+    rule: "4.1.1.3"
+    level: 2
+    status: "yes"
+  - name: "Ensure_audit_backlog_limit_is_sufficient"
+    description: "4.1.1.4 Ensure audit_backlog_limit is sufficient"
+    score: 1
+    rule: "4.1.1.4"
+    level: 1
+    status: "yes"
+- section: "  4.1.2 Configure Data Retention"
+  description:
+  check:
+  - name: "Ensure_audit_log_storage_size_is_configured"
+    description: "4.1.2.1 Ensure audit log storage size is configured"
+    score: 1
+    rule: "4.1.2.1"
+    level: 2
+    status: "yes"
+  - name: "Ensure_audit_logs_are_not_automatically_deleted"
+    description: "4.1.2.2 Ensure audit logs are not automatically deleted"
+    score: 1
+    rule: "4.1.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_system_is_disabled_when_audit_logs_are_full"
+    description: "4.1.2.3 Ensure system is disabled when audit logs are full"
+    score: 1
+    rule: "4.1.2.3"
+    level: 2
+    status: "yes"
+  - name: "Ensure_events_that_modify_date_and_time_information_are_collected"
+    description: "4.1.3 Ensure events that modify date and time information are collected"
+    score: 1
+    rule: "4.1.3"
+    level: 2
+    status: "yes"
+  - name: "Ensure_events_that_modify_user/group_information_are_collected"
+    description: "4.1.4 Ensure events that modify user/group information are collected"
+    score: 1
+    rule: "4.1.4"
+    level: 2
+    status: "yes"
+  - name: "Ensure_events_that_modify_the_systems_network_environment_are_collected"
+    description: "4.1.5 Ensure events that modify the systems network environment are collected"
+    score: 1
+    rule: "4.1.5"
+    level: 2
+    status: "yes"
+  - name: "Ensure_events_that_modify_the_systems_Mandatory_Access_Controls_are_collect"
+    description: "4.1.6 Ensure events that modify the systems Mandatory Access Controls are collected"
+    score: 1
+    rule: "4.1.6"
+    level: 2
+    status: "yes"
+  - name: "Ensure_login_and_logout_events_are_collected"
+    description: "4.1.7 Ensure login and logout events are collected"
+    score: 1
+    rule: "4.1.7"
+    level: 2
+    status: "yes"
+  - name: "Ensure_session_initiation_information_is_collected"
+    description: "4.1.8 Ensure session initiation information is collected"
+    score: 1
+    rule: "4.1.8"
+    level: 2
+    status: "yes"
+  - name: "Ensure_discretionary_access_control_permission_modification_events_are_coll"
+    description: "4.1.9 Ensure discretionary access control permission modification events are collected"
+    score: 1
+    rule: "4.1.9"
+    level: 2
+    status: "yes"
+  - name: "Ensure_unsuccessful_unauthorized_file_access_attempts_are_collected"
+    description: "4.1.10 Ensure unsuccessful unauthorized file access attempts are collected"
+    score: 1
+    rule: "4.1.10"
+    level: 2
+    status: "yes"
+  - name: "Ensure_use_of_privileged_commands_is_collected"
+    description: "4.1.11 Ensure use of privileged commands is collected"
+    score: 1
+    rule: "4.1.11"
+    level: 2
+    status: "yes"
+  - name: "Ensure_successful_file_system_mounts_are_collected"
+    description: "4.1.12 Ensure successful file system mounts are collected"
+    score: 1
+    rule: "4.1.12"
+    level: 2
+    status: "yes"
+  - name: "Ensure_file_deletion_events_by_users_are_collected"
+    description: "4.1.13 Ensure file deletion events by users are collected"
+    score: 1
+    rule: "4.1.13"
+    level: 2
+    status: "yes"
+  - name: "Ensure_changes_to_system_administration_scope_(sudoers)_is_collected"
+    description: "4.1.14 Ensure changes to system administration scope (sudoers) is collected"
+    score: 1
+    rule: "4.1.14"
+    level: 2
+    status: "yes"
+  - name: "Ensure_system_administrator_actions_(sudolog)_are_collected"
+    description: "4.1.15  Ensure system administrator actions (sudolog) are collected"
+    score: 1
+    rule: "4.1.15"
+    level: 2
+    status: "yes"
+  - name: "Ensure_kernel_module_loading_and_unloading_is_collected"
+    description: "4.1.16 Ensure kernel module loading and unloading is collected"
+    score: 1
+    rule: "4.1.16"
+    level: 2
+    status: "yes"
+  - name: "Ensure_the_audit_configuration_is_immutable"
+    description: "4.1.17 Ensure the audit configuration is immutable"
+    score: 1
+    rule: "4.1.17"
+    level: 2
+    status: "yes"
+- section: " 4.2 Configure Logging\n  4.2.1 Configure rsyslog"
+  description:
+  check:
+  - name: "Ensure_rsyslog_is_installed"
+    description: "4.2.1.1 Ensure rsyslog is installed"
+    score: 1
+    rule: "4.2.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_rsyslog_Service_is_enabled"
+    description: "4.2.1.2 Ensure rsyslog Service is enabled"
+    score: 1
+    rule: "4.2.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_is_configured"
+    description: "4.2.1.3 Ensure logging is configured"
+    score: 0
+    rule: "4.2.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_rsyslog_default_file_permissions_configured"
+    description: "4.2.1.4 Ensure rsyslog default file permissions configured"
+    score: 1
+    rule: "4.2.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_rsyslog_is_configured_to_send_logs_to_a_remote_log_host"
+    description: "4.2.1.5 Ensure rsyslog is configured to send logs to a remote log host"
+    score: 1
+    rule: "4.2.1.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_remote_rsyslog_messages_are_only_accepted_on_designated_log_hosts."
+    description: "4.2.1.6 Ensure remote rsyslog messages are only accepted on designated log hosts."
+    score: 0
+    rule: "4.2.1.6"
+    level: 1
+    status: "yes"
+- section: "  4.2.2 Configure journald"
+  description:
+  check:
+  - name: "Ensure_journald_is_configured_to_send_logs_to_rsyslog"
+    description: "4.2.2.1 Ensure journald is configured to send logs to rsyslog"
+    score: 1
+    rule: "4.2.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_journald_is_configured_to_compress_large_log_files"
+    description: "4.2.2.2 Ensure journald is configured to compress large log files"
+    score: 1
+    rule: "4.2.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_journald_is_configured_to_write_logfiles_to_persistent_disk"
+    description: "4.2.2.3 Ensure journald is configured to write logfiles to persistent disk"
+    score: 1
+    rule: "4.2.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_all_logfiles_are_configured"
+    description: "4.2.3 Ensure permissions on all logfiles are configured"
+    score: 1
+    rule: "4.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logrotate_is_configured"
+    description: "4.3 Ensure logrotate is configured"
+    score: 0
+    rule: "4.3"
+    level: 1
+    status: "yes"
+- section: "5 Access, Authentication and Authorization\n 5.1 Configure cron"
+  description:
+  check:
+  - name: "Ensure_cron_daemon_is_enabled"
+    description: "5.1.1 Ensure cron daemon is enabled"
+    score: 1
+    rule: "5.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/crontab_are_configured"
+    description: "5.1.2 Ensure permissions on /etc/crontab are configured"
+    score: 1
+    rule: "5.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/cron.hourly_are_configured"
+    description: "5.1.3 Ensure permissions on /etc/cron.hourly are configured"
+    score: 1
+    rule: "5.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/cron.daily_are_configured"
+    description: "5.1.4 Ensure permissions on /etc/cron.daily are configured"
+    score: 1
+    rule: "5.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/cron.weekly_are_configured"
+    description: "5.1.5 Ensure permissions on /etc/cron.weekly are configured"
+    score: 1
+    rule: "5.1.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/cron.monthly_are_configured"
+    description: "5.1.6 Ensure permissions on /etc/cron.monthly are configured"
+    score: 1
+    rule: "5.1.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/cron.d_are_configured"
+    description: "5.1.7 Ensure permissions on /etc/cron.d are configured"
+    score: 1
+    rule: "5.1.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_at/cron_is_restricted_to_authorized_users"
+    description: "5.1.8 Ensure at/cron is restricted to authorized users"
+    score: 1
+    rule: "5.1.8"
+    level: 1
+    status: "yes"
+- section: " 5.2 SSH Server Configuration"
+  description:
+  check:
+  - name: "Ensure_permissions_on_/etc/ssh/sshd_config_are_configured"
+    description: "5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured"
+    score: 1
+    rule: "5.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_SSH_private_host_key_files_are_configured"
+    description: "5.2.2 Ensure permissions on SSH private host key files are configured"
+    score: 1
+    rule: "5.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_SSH_public_host_key_files_are_configured"
+    description: "5.2.3 Ensure permissions on SSH public host key files are configured"
+    score: 1
+    rule: "5.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_Protocol_is_not_set_to_1"
+    description: "5.2.4 Ensure SSH Protocol is not set to 1"
+    score: 1
+    rule: "5.2.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_LogLevel_is_appropriate"
+    description: "5.2.5 Ensure SSH LogLevel is appropriate"
+    score: 1
+    rule: "5.2.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_X11_forwarding_is_disabled"
+    description: "5.2.6 Ensure SSH X11 forwarding is disabled"
+    score: 1
+    rule: "5.2.6"
+    level: 2
+    status: "yes"
+  - name: "Ensure_SSH_MaxAuthTries_is_set_to_4_or_less"
+    description: "5.2.7 Ensure SSH MaxAuthTries is set to 4 or less"
+    score: 1
+    rule: "5.2.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_IgnoreRhosts_is_enabled"
+    description: "5.2.8 Ensure SSH IgnoreRhosts is enabled"
+    score: 1
+    rule: "5.2.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_HostbasedAuthentication_is_disabled"
+    description: "5.2.9 Ensure SSH HostbasedAuthentication is disabled"
+    score: 1
+    rule: "5.2.9"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_root_login_is_disabled"
+    description: "5.2.10 Ensure SSH root login is disabled"
+    score: 1
+    rule: "5.2.10"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_PermitEmptyPasswords_is_disabled"
+    description: "5.2.11 Ensure SSH PermitEmptyPasswords is disabled"
+    score: 1
+    rule: "5.2.11"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_PermitUserEnvironment_is_disabled"
+    description: "5.2.12 Ensure SSH PermitUserEnvironment is disabled"
+    score: 1
+    rule: "5.2.12"
+    level: 1
+    status: "yes"
+  - name: "Ensure_only_strong_Ciphers_are_used"
+    description: "5.2.13 Ensure only strong Ciphers are used"
+    score: 1
+    rule: "5.2.13"
+    level: 1
+    status: "yes"
+  - name: "Ensure_only_strong_MAC_algorithms_are_used"
+    description: "5.2.14 Ensure only strong MAC algorithms are used"
+    score: 1
+    rule: "5.2.14"
+    level: 1
+    status: "yes"
+  - name: "Ensure_only_strong_Key_Exchange_algorithms_are_used"
+    description: "5.2.15 Ensure only strong Key Exchange algorithms are used"
+    score: 1
+    rule: "5.2.15"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_Idle_Timeout_Interval_is_configured"
+    description: "5.2.16 Ensure SSH Idle Timeout Interval is configured"
+    score: 1
+    rule: "5.2.16"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_LoginGraceTime_is_set_to_one_minute_or_less"
+    description: "5.2.17 Ensure SSH LoginGraceTime is set to one minute or less"
+    score: 1
+    rule: "5.2.17"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_access_is_limited"
+    description: "5.2.18 Ensure SSH access is limited"
+    score: 1
+    rule: "5.2.18"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_warning_banner_is_configured"
+    description: "5.2.19 Ensure SSH warning banner is configured"
+    score: 1
+    rule: "5.2.19"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_PAM_is_enabled"
+    description: "5.2.20 Ensure SSH PAM is enabled"
+    score: 1
+    rule: "5.2.20"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_AllowTcpForwarding_is_disabled"
+    description: "5.2.21 Ensure SSH AllowTcpForwarding is disabled"
+    score: 1
+    rule: "5.2.21"
+    level: 2
+    status: "yes"
+  - name: "Ensure_SSH_MaxStartups_is_configured"
+    description: "5.2.22 Ensure SSH MaxStartups is configured"
+    score: 1
+    rule: "5.2.22"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_MaxSessions_is_set_to_4_or_less"
+    description: "5.2.23 Ensure SSH MaxSessions is set to 4 or less"
+    score: 1
+    rule: "5.2.23"
+    level: 1
+    status: "yes"
+- section: " 5.3 Configure PAM"
+  description:
+  check:
+  - name: "Ensure_password_creation_requirements_are_configured"
+    description: "5.3.1 Ensure password creation requirements are configured"
+    score: 1
+    rule: "5.3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_lockout_for_failed_password_attempts_is_configured"
+    description: "5.3.2 Ensure lockout for failed password attempts is configured"
+    score: 1
+    rule: "5.3.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_password_reuse_is_limited"
+    description: "5.3.3 Ensure password reuse is limited"
+    score: 1
+    rule: "5.3.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_password_hashing_algorithm_is_SHA-512"
+    description: "5.3.4 Ensure password hashing algorithm is SHA-512"
+    score: 1
+    rule: "5.3.4"
+    level: 1
+    status: "yes"
+- section: " 5.4 User Accounts and Environment\n  5.4.1 Set Shadow Password Suite Parameters"
+  description:
+  check:
+  - name: "Ensure_password_expiration_is_365_days_or_less"
+    description: "5.4.1.1 Ensure password expiration is 365 days or less"
+    score: 1
+    rule: "5.4.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_minimum_days_between_password_changes_is_configured"
+    description: "5.4.1.2 Ensure minimum days between password changes is configured"
+    score: 1
+    rule: "5.4.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_password_expiration_warning_days_is_7_or_more"
+    description: "5.4.1.3 Ensure password expiration warning days is 7 or more"
+    score: 1
+    rule: "5.4.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_inactive_password_lock_is_30_days_or_less"
+    description: "5.4.1.4 Ensure inactive password lock is 30 days or less"
+    score: 1
+    rule: "5.4.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_all_users_last_password_change_date_is_in_the_past"
+    description: "5.4.1.5 Ensure all users last password change date is in the past"
+    score: 1
+    rule: "5.4.1.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_system_accounts_are_secured"
+    description: "5.4.2 Ensure system accounts are secured"
+    score: 1
+    rule: "5.4.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_default_group_for_the_root_account_is_GID_0"
+    description: "5.4.3 Ensure default group for the root account is GID 0"
+    score: 1
+    rule: "5.4.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_default_user_umask_is_027_or_more_restrictive"
+    description: "5.4.4 Ensure default user umask is 027 or more restrictive"
+    score: 1
+    rule: "5.4.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_default_user_shell_timeout_is_900_seconds_or_less"
+    description: "5.4.5 Ensure default user shell timeout is 900 seconds or less"
+    score: 1
+    rule: "5.4.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_root_login_is_restricted_to_system_console"
+    description: "5.5 Ensure root login is restricted to system console"
+    score: 0
+    rule: "5.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_access_to_the_su_command_is_restricted"
+    description: "5.6 Ensure access to the su command is restricted"
+    score: 1
+    rule: "5.6"
+    level: 1
+    status: "yes"
+- section: "6 System Maintenance\n 6.1 System File Permissions"
+  description:
+  check:
+  - name: "Audit_system_file_permissions"
+    description: "6.1.1 Audit system file permissions"
+    score: 0
+    rule: "6.1.1"
+    level: 2
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/passwd_are_configured"
+    description: "6.1.2 Ensure permissions on /etc/passwd are configured"
+    score: 1
+    rule: "6.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/gshadow-_are_configured"
+    description: "6.1.3 Ensure permissions on /etc/gshadow- are configured"
+    score: 1
+    rule: "6.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/shadow_are_configured"
+    description: "6.1.4 Ensure permissions on /etc/shadow are configured"
+    score: 1
+    rule: "6.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/group_are_configured"
+    description: "6.1.5 Ensure permissions on /etc/group are configured"
+    score: 1
+    rule: "6.1.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/passwd-_are_configured"
+    description: "6.1.6 Ensure permissions on /etc/passwd- are configured"
+    score: 1
+    rule: "6.1.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/shadow-_are_configured"
+    description: "6.1.7 Ensure permissions on /etc/shadow- are configured"
+    score: 1
+    rule: "6.1.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/group-_are_configured"
+    description: "6.1.8 Ensure permissions on /etc/group- are configured"
+    score: 1
+    rule: "6.1.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_permissions_on_/etc/gshadow_are_configured"
+    description: "6.1.9 Ensure permissions on /etc/gshadow are configured"
+    score: 1
+    rule: "6.1.9"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_world_writable_files_exist"
+    description: "6.1.10 Ensure no world writable files exist"
+    score: 1
+    rule: "6.1.10"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_unowned_files_or_directories_exist"
+    description: "6.1.11 Ensure no unowned files or directories exist"
+    score: 1
+    rule: "6.1.11"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_ungrouped_files_or_directories_exist"
+    description: "6.1.12 Ensure no ungrouped files or directories exist"
+    score: 1
+    rule: "6.1.12"
+    level: 1
+    status: "yes"
+  - name: "Audit_SUID_executables"
+    description: "6.1.13 Audit SUID executables"
+    score: 0
+    rule: "6.1.13"
+    level: 1
+    status: "yes"
+  - name: "Audit_SGID_executables"
+    description: "6.1.14 Audit SGID executables"
+    score: 0
+    rule: "6.1.14"
+    level: 1
+    status: "yes"
+- section: " 6.2 User and Group Settings"
+  description:
+  check:
+  - name: "Ensure_password_fields_are_not_empty"
+    description: "6.2.1 Ensure password fields are not empty"
+    score: 1
+    rule: "6.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_legacy_+_entries_exist_in_/etc/passwd"
+    description: "6.2.2 Ensure no legacy + entries exist in /etc/passwd"
+    score: 1
+    rule: "6.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_all_users_home_directories_exist"
+    description: "6.2.3 Ensure all users home directories exist"
+    score: 1
+    rule: "6.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_legacy_+_entries_exist_in_/etc/shadow"
+    description: "6.2.4 Ensure no legacy + entries exist in /etc/shadow"
+    score: 1
+    rule: "6.2.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_legacy_+_entries_exist_in_/etc/group"
+    description: "6.2.5 Ensure no legacy + entries exist in /etc/group"
+    score: 1
+    rule: "6.2.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_root_is_the_only_UID_0_account"
+    description: "6.2.6 Ensure root is the only UID 0 account"
+    score: 1
+    rule: "6.2.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_root_PATH_Integrity"
+    description: "6.2.7 Ensure root PATH Integrity"
+    score: 1
+    rule: "6.2.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_users_home_directories_permissions_are_750_or_more_restrictive"
+    description: "6.2.8 Ensure users home directories permissions are 750 or more restrictive"
+    score: 1
+    rule: "6.2.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_users_own_their_home_directories"
+    description: "6.2.9 Ensure users own their home directories"
+    score: 1
+    rule: "6.2.9"
+    level: 1
+    status: "yes"
+  - name: "Ensure_users_dot_files_are_not_group_or_world_writable"
+    description: "6.2.10 Ensure users dot files are not group or world writable"
+    score: 1
+    rule: "6.2.10"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_users_have_.forward_files"
+    description: "6.2.11 Ensure no users have .forward files"
+    score: 1
+    rule: "6.2.11"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_users_have_.netrc_files"
+    description: "6.2.12 Ensure no users have .netrc files"
+    score: 1
+    rule: "6.2.12"
+    level: 1
+    status: "yes"
+  - name: "Ensure_users_.netrc_Files_are_not_group_or_world_accessible"
+    description: "6.2.13 Ensure users .netrc Files are not group or world accessible"
+    score: 1
+    rule: "6.2.13"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_users_have_.rhosts_files"
+    description: "6.2.14 Ensure no users have .rhosts files"
+    score: 1
+    rule: "6.2.14"
+    level: 1
+    status: "yes"
+  - name: "Ensure_all_groups_in_/etc/passwd_exist_in_/etc/group"
+    description: "6.2.15 Ensure all groups in /etc/passwd exist in /etc/group"
+    score: 1
+    rule: "6.2.15"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_duplicate_UIDs_exist"
+    description: "6.2.16 Ensure no duplicate UIDs exist"
+    score: 1
+    rule: "6.2.16"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_duplicate_GIDs_exist"
+    description: "6.2.17 Ensure no duplicate GIDs exist"
+    score: 1
+    rule: "6.2.17"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_duplicate_user_names_exist"
+    description: "6.2.18 Ensure no duplicate user names exist"
+    score: 1
+    rule: "6.2.18"
+    level: 1
+    status: "yes"
+  - name: "Ensure_no_duplicate_group_names_exist"
+    description: "6.2.19 Ensure no duplicate group names exist"
+    score: 1
+    rule: "6.2.19"
+    level: 1
+    status: "yes"
+  - name: "Ensure_shadow_group_is_empty"
+    description: "6.2.20 Ensure shadow group is empty"
+    score: 1
+    rule: "6.2.20"
+    level: 1
+    status: "yes"
+

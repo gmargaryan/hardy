@@ -1,0 +1,545 @@
+check_list:
+- section: "1 Management Plane\n 1.1 Password Management"
+  description:
+  check:
+  - name: "Ensure_Logon_Password_is_set"
+    description: "1.1.1 Ensure Logon Password is set"
+    score: 1
+    rule: "1.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Enable_Password_is_set"
+    description: "1.1.2 Ensure Enable Password is set"
+    score: 1
+    rule: "1.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Master_Key_Passphrase_is_set"
+    description: "1.1.3 Ensure Master Key Passphrase is set"
+    score: 1
+    rule: "1.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Password_Recovery_is_disabled"
+    description: "1.1.4 Ensure Password Recovery is disabled"
+    score: 1
+    rule: "1.1.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Password_Policy_is_enabled"
+    description: "1.1.5 Ensure Password Policy is enabled"
+    score: 1
+    rule: "1.1.5"
+    level: 1
+    status: "yes"
+- section: " 1.2 Device Management"
+  description:
+  check:
+  - name: "Ensure_Domain_Name_is_set"
+    description: "1.2.1 Ensure Domain Name is set"
+    score: 1
+    rule: "1.2.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Host_Name_is_set"
+    description: "1.2.2 Ensure Host Name is set"
+    score: 1
+    rule: "1.2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Failover_is_enabled"
+    description: "1.2.3 Ensure Failover is enabled"
+    score: 1
+    rule: "1.2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Unused_Interfaces_is_disable"
+    description: "1.2.4 Ensure Unused Interfaces is disable"
+    score: 1
+    rule: "1.2.4"
+    level: 1
+    status: "yes"
+- section: " 1.3 Image security"
+  description:
+  check:
+  - name: "Ensure_Image_Integrity_is_correct"
+    description: "1.3.1 Ensure Image Integrity is correct"
+    score: 0
+    rule: "1.3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Image_Authenticity_is_correct"
+    description: "1.3.2 Ensure Image Authenticity is correct"
+    score: 1
+    rule: "1.3.2"
+    level: 1
+    status: "yes"
+- section: " 1.4 Authentication, Authorization and Accounting\n  1.4.1 Local AAA rules"
+  description:
+  check:
+  - name: "Ensure_aaa_local_authentication_max_failed_attempts_is_set_to_less_than_or_"
+    description: "1.4.1.1 Ensure aaa local authentication max failed attempts is set <= 3"
+    score: 1
+    rule: "1.4.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_local_username_and_password_is_set"
+    description: "1.4.1.2 Ensure local username and password is set"
+    score: 1
+    rule: "1.4.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_known_default_accounts_do_not_exist"
+    description: "1.4.1.3 Ensure known default accounts do not exist"
+    score: 1
+    rule: "1.4.1.3"
+    level: 1
+    status: "yes"
+- section: "  1.4.2 Remote AAA servers"
+  description:
+  check:
+  - name: "Ensure_TACACS+/RADIUS_is_configured_correctly"
+    description: "1.4.2.1 Ensure TACACS+/RADIUS is configured correctly"
+    score: 1
+    rule: "1.4.2.1"
+    level: 1
+    status: "yes"
+- section: "  1.4.3 AAA authentication"
+  description:
+  check:
+  - name: "Ensure_aaa_authentication_enable_console_is_configured_correctly"
+    description: "1.4.3.1 Ensure aaa authentication enable console is configured correctly"
+    score: 1
+    rule: "1.4.3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_authentication_http_console_is_configured_correctly"
+    description: "1.4.3.2 Ensure aaa authentication http console is configured correctly"
+    score: 1
+    rule: "1.4.3.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_authentication_secure-http-client_is_configured_correctly"
+    description: "1.4.3.3 Ensure aaa authentication secure-http-client is configured correctly"
+    score: 1
+    rule: "1.4.3.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_authentication_serial_console_is_configured_correctly"
+    description: "1.4.3.4 Ensure aaa authentication serial console is configured correctly"
+    score: 1
+    rule: "1.4.3.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_authentication_ssh_console_is_configured_correctly"
+    description: "1.4.3.5 Ensure aaa authentication ssh console is configured correctly"
+    score: 1
+    rule: "1.4.3.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_authentication_telnet_console_is_configured_correctly"
+    description: "1.4.3.6 Ensure aaa authentication telnet console is configured correctly"
+    score: 1
+    rule: "1.4.3.6"
+    level: 1
+    status: "yes"
+- section: "  1.4.4 AAA Authorization"
+  description:
+  check:
+  - name: "Ensure_aaa_command_authorization_is_configured_correctly"
+    description: "1.4.4.1 Ensure aaa command authorization is configured correctly"
+    score: 1
+    rule: "1.4.4.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_authorization_exec_is_configured_correctly"
+    description: "1.4.4.2 Ensure aaa authorization exec is configured correctly"
+    score: 1
+    rule: "1.4.4.2"
+    level: 1
+    status: "yes"
+- section: "  1.4.5 AAA Accounting"
+  description:
+  check:
+  - name: "Ensure_aaa_command_accounting_is_configured_correctly"
+    description: "1.4.5.1 Ensure aaa command accounting is configured correctly"
+    score: 1
+    rule: "1.4.5.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_accounting_for_SSH_is_configured_correctly"
+    description: "1.4.5.2 Ensure aaa accounting for SSH is configured correctly"
+    score: 1
+    rule: "1.4.5.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_accounting_for_Serial_console_is_configured_correctly"
+    description: "1.4.5.3 Ensure aaa accounting for Serial console is configured correctly"
+    score: 1
+    rule: "1.4.5.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_aaa_accounting_for_EXEC_mode_is_configured_correctly"
+    description: "1.4.5.4 Ensure aaa accounting for EXEC mode is configured correctly"
+    score: 1
+    rule: "1.4.5.4"
+    level: 1
+    status: "yes"
+- section: " 1.5 Banner Rules"
+  description:
+  check:
+  - name: "Ensure_ASDM_banner_is_set"
+    description: "1.5.1 Ensure ASDM banner is set"
+    score: 1
+    rule: "1.5.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_EXEC_banner_is_set"
+    description: "1.5.2 Ensure EXEC banner is set"
+    score: 1
+    rule: "1.5.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_LOGIN_banner_is_set"
+    description: "1.5.3 Ensure LOGIN banner is set"
+    score: 1
+    rule: "1.5.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_MOTD_banner_is_set"
+    description: "1.5.4 Ensure MOTD banner is set"
+    score: 1
+    rule: "1.5.4"
+    level: 1
+    status: "yes"
+- section: " 1.6 SSH rules"
+  description:
+  check:
+  - name: "Ensure_SSH_source_restriction_is_set_to_an_authorized_IP_address"
+    description: "1.6.1 Ensure SSH source restriction is set to an authorized IP address"
+    score: 1
+    rule: "1.6.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_version_2_is_enabled"
+    description: "1.6.2 Ensure SSH version 2 is enabled"
+    score: 1
+    rule: "1.6.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_RSA_key_pair_is_greater_than_or_equal_to_2048_bits"
+    description: "1.6.3 Ensure RSA key pair is greater than or equal to 2048 bits"
+    score: 1
+    rule: "1.6.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SCP_protocol_is_set_to_Enable_for_files_transfers"
+    description: "1.6.4 Ensure SCP protocol is set to Enable for files transfers"
+    score: 1
+    rule: "1.6.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Telnet_is_disabled"
+    description: "1.6.5 Ensure Telnet is disabled"
+    score: 1
+    rule: "1.6.5"
+    level: 1
+    status: "yes"
+- section: " 1.7 HTTP rules"
+  description:
+  check:
+  - name: "Ensure_HTTP_source_restriction_is_set_to_an_authorized_IP_address"
+    description: "1.7.1 Ensure HTTP source restriction is set to an authorized IP address"
+    score: 1
+    rule: "1.7.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_TLS_1.0_is_set_for_HTTPS_access"
+    description: "1.7.2 Ensure TLS 1.0 is set for HTTPS access"
+    score: 1
+    rule: "1.7.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSL_AES_256_encryption_is_set_for_HTTPS_access"
+    description: "1.7.3 Ensure SSL AES 256 encryption is set for HTTPS access"
+    score: 1
+    rule: "1.7.3"
+    level: 1
+    status: "yes"
+- section: " 1.8 Session timeout"
+  description:
+  check:
+  - name: "Ensure_console_session_timeout_is_less_than_or_equal_to_5_minutes"
+    description: "1.8.1 Ensure console session timeout is less than or equal to 5 minutes"
+    score: 1
+    rule: "1.8.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SSH_session_timeout_is_less_than_or_equal_to_5_minutes"
+    description: "1.8.2 Ensure SSH session timeout is less than or equal to 5 minutes"
+    score: 1
+    rule: "1.8.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_HTTP_session_timeout_is_less_than_or_equal_to_5_minutes"
+    description: "1.8.3 Ensure HTTP session timeout is less than or equal to 5 minutes"
+    score: 1
+    rule: "1.8.3"
+    level: 1
+    status: "yes"
+- section: " 1.9 Clock rules\n  1.9.1 NTP rules"
+  description:
+  check:
+  - name: "Ensure_NTP_authentication_is_enabled"
+    description: "1.9.1.1 Ensure NTP authentication is enabled"
+    score: 1
+    rule: "1.9.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_NTP_authentication_key_is_configured_correctly"
+    description: "1.9.1.2 Ensure NTP authentication key is configured correctly"
+    score: 1
+    rule: "1.9.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_trusted_NTP_server_exists"
+    description: "1.9.1.3 Ensure trusted NTP server exists"
+    score: 1
+    rule: "1.9.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_local_timezone_is_properly_configured"
+    description: "1.9.2 Ensure local timezone is properly configured"
+    score: 1
+    rule: "1.9.2"
+    level: 1
+    status: "yes"
+- section: " 1.10 Logging Rules"
+  description:
+  check:
+  - name: "Ensure_logging_is_enabled"
+    description: "1.10.1 Ensure logging is enabled"
+    score: 1
+    rule: "1.10.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_to_Serial_console_is_disabled"
+    description: "1.10.2 Ensure logging to Serial console is disabled"
+    score: 1
+    rule: "1.10.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_to_monitor_is_disabled"
+    description: "1.10.3 Ensure logging to monitor is disabled"
+    score: 1
+    rule: "1.10.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_syslog_hosts_is_configured_correctly"
+    description: "1.10.4 Ensure syslog hosts is configured correctly"
+    score: 1
+    rule: "1.10.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_with_the_device_ID_is_configured_correctly"
+    description: "1.10.5 Ensure logging with the device ID is configured correctly"
+    score: 1
+    rule: "1.10.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_history_severity_level_is_set_to_greater_than_or_equal_to_5"
+    description: "1.10.6 Ensure logging history severity level is set to greater than or equal to 5"
+    score: 1
+    rule: "1.10.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_with_timestamps_is_enabled"
+    description: "1.10.7 Ensure logging with timestamps is enabled"
+    score: 1
+    rule: "1.10.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_syslog_logging_facility_is_equal_to_23"
+    description: "1.10.8 Ensure syslog logging facility is equal to 23"
+    score: 1
+    rule: "1.10.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_buffer_size_is_greater_than_or_equal_to_524288_bytes_(512kb)"
+    description: "1.10.9 Ensure logging buffer size is greater than or equal to 524288 bytes (512kb)"
+    score: 1
+    rule: "1.10.9"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_buffered_severity_level_is_greater_than_or_equal_to_3"
+    description: "1.10.10 Ensure logging buffered severity level is greater than or equal to 3"
+    score: 1
+    rule: "1.10.10"
+    level: 1
+    status: "yes"
+  - name: "Ensure_logging_trap_severity_level_is_greater_than_or_equal_to_5"
+    description: "1.10.11 Ensure logging trap severity level is greater than or equal to 5"
+    score: 1
+    rule: "1.10.11"
+    level: 1
+    status: "yes"
+  - name: "Ensure_email_logging_is_configured_for_critical_to_emergency"
+    description: "1.10.12 Ensure email logging is configured for critical to emergency"
+    score: 1
+    rule: "1.10.12"
+    level: 1
+    status: "yes"
+- section: " 1.11 SNMP Rules"
+  description:
+  check:
+  - name: "Ensure_snmp-server_group_is_set_to_v3_priv"
+    description: "1.11.1 Ensure snmp-server group is set to v3 priv"
+    score: 1
+    rule: "1.11.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_snmp-server_user_is_set_to_v3_auth_SHA"
+    description: "1.11.2 Ensure snmp-server user is set to v3 auth SHA"
+    score: 1
+    rule: "1.11.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_snmp-server_host_is_set_to_version_3"
+    description: "1.11.3 Ensure snmp-server host is set to version 3"
+    score: 1
+    rule: "1.11.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SNMP_traps_is_enabled"
+    description: "1.11.4 Ensure SNMP traps is enabled"
+    score: 1
+    rule: "1.11.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_SNMP_community_string_is_not_the_default_string"
+    description: "1.11.5 Ensure SNMP community string is not the default string"
+    score: 1
+    rule: "1.11.5"
+    level: 1
+    status: "yes"
+- section: "2 Control Plane\n 2.1 Routing protocols authentication"
+  description:
+  check:
+  - name: "Ensure_RIP_authentication_is_enabled"
+    description: "2.1.1 Ensure RIP authentication is enabled"
+    score: 1
+    rule: "2.1.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_OSPF_authentication_is_enabled"
+    description: "2.1.2 Ensure OSPF authentication is enabled"
+    score: 1
+    rule: "2.1.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_EIGRP_authentication_is_enabled"
+    description: "2.1.3 Ensure EIGRP authentication is enabled"
+    score: 1
+    rule: "2.1.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_noproxyarp_is_enabled_for_untrusted_interfaces"
+    description: "2.2 Ensure noproxyarp is enabled for untrusted interfaces"
+    score: 1
+    rule: "2.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_DNS_Guard_is_enabled"
+    description: "2.3 Ensure DNS Guard is enabled"
+    score: 1
+    rule: "2.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_DHCP_services_are_disabled_for_untrusted_interfaces"
+    description: "2.4 Ensure DHCP services are disabled for untrusted interfaces"
+    score: 1
+    rule: "2.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_ICMP_is_restricted_for_untrusted_interfaces"
+    description: "2.5 Ensure ICMP is restricted for untrusted interfaces"
+    score: 1
+    rule: "2.5"
+    level: 1
+    status: "yes"
+- section: "3 Data Plane"
+  description:
+  check:
+  - name: "Ensure_DNS_services_are_configured_correctly"
+    description: "3.1 Ensure DNS services are configured correctly"
+    score: 1
+    rule: "3.1"
+    level: 1
+    status: "yes"
+  - name: "Ensure_intrusion_prevention_is_enabled_for_untrusted_interfaces"
+    description: "3.2 Ensure intrusion prevention is enabled for untrusted interfaces"
+    score: 1
+    rule: "3.2"
+    level: 1
+    status: "yes"
+  - name: "Ensure_packet_fragments_are_restricted_for_untrusted_interfaces"
+    description: "3.3 Ensure packet fragments are restricted for untrusted interfaces"
+    score: 1
+    rule: "3.3"
+    level: 1
+    status: "yes"
+  - name: "Ensure_non-default_application_inspection_is_configured_correctly"
+    description: "3.4 Ensure non-default application inspection is configured correctly"
+    score: 0
+    rule: "3.4"
+    level: 1
+    status: "yes"
+  - name: "Ensure_DOS_protection_is_enabled_for_untrusted_interfaces"
+    description: "3.5 Ensure DOS protection is enabled for untrusted interfaces"
+    score: 0
+    rule: "3.5"
+    level: 1
+    status: "yes"
+  - name: "Ensure_threat-detection_statistics_is_set_to_tcp-intercept"
+    description: "3.6 Ensure threat-detection statistics is set to tcp-intercept"
+    score: 1
+    rule: "3.6"
+    level: 1
+    status: "yes"
+  - name: "Ensure_ip_verify_is_set_to_reverse-path_for_untrusted_interfaces"
+    description: "3.7 Ensure ip verify is set to reverse-path for untrusted interfaces"
+    score: 1
+    rule: "3.7"
+    level: 1
+    status: "yes"
+  - name: "Ensure_security-level_is_set_to_0_for_Internet-facing_interface"
+    description: "3.8 Ensure security-level is set to 0 for Internet-facing interface"
+    score: 1
+    rule: "3.8"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Botnet_protection_is_enabled_for_untrusted_interfaces"
+    description: "3.9 Ensure Botnet protection is enabled for untrusted interfaces"
+    score: 1
+    rule: "3.9"
+    level: 1
+    status: "yes"
+  - name: "Ensure_ActiveX_filtering_is_enabled"
+    description: "3.10 Ensure ActiveX filtering is enabled"
+    score: 1
+    rule: "3.10"
+    level: 1
+    status: "yes"
+  - name: "Ensure_Java_applet_filtering_is_enabled"
+    description: "3.11 Ensure Java applet filtering is enabled"
+    score: 1
+    rule: "3.11"
+    level: 1
+    status: "yes"
+  - name: "Ensure_explicit_deny_in_access_lists_is_configured_correctly"
+    description: "3.12 Ensure explicit deny in access lists is configured correctly"
+    score: 1
+    rule: "3.12"
+    level: 1
+    status: "yes"
+

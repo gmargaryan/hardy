@@ -1,0 +1,45 @@
+hosts:
+- ip_address: '192.168.31.136'
+  status: 'yes'
+  device_type: 'cisco_ios'
+  port: '22'
+  software_version:
+  benchmarks:
+    check_list: 'Cisco_IOS_15_Benchmark_v4.0.0-check-list.yml'
+    check_output: 'Cisco_IOS_15_Benchmark_v4.0.0-check-output.yml'
+    scripts: 'Cisco_IOS_15_Benchmark_scripts.py'
+  interfaces:
+    trust: 
+    - name: 'Ethernet0/0.33'
+    untrust:
+    - name: 'Ethernet0/1'
+    - name: 'Ethernet0/2'
+    internet:
+    - name:
+    dmz:
+    - name:
+    mgmt:
+    - name: 'Ethernet0/3'
+- ip_address: '192.168.31.138'
+  status: 'no'
+  device_type: 'cisco_asa'
+  port: '22'
+  software_version: 
+  benchmarks:
+    check_list: 'Cisco_Firewall_Benchmark_v4.1.0-check-list.yml'
+    check_output: 'Cisco_Firewall_Benchmark_v4.1.0-check-output.yml'
+    scripts: 'Cisco_Firewall_Benchmark_scripts.py'
+  interfaces:
+    trust: 
+    - name: 'GigabitEthernet0/0.202'
+    untrust:
+    - name: 'GigabitEthernet0/1'
+    - name: 'GigabitEthernet0/2'
+    internet:
+    - name: 'GigabitEthernet0/1'
+    - name: 'GigabitEthernet0/2'
+    dmz:
+    - name: 'GigabitEthernet0/0.201'
+    mgmt:
+    - name: 'GigabitEthernet0/3'
+

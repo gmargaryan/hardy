@@ -1,0 +1,581 @@
+check_list:
+- section: "1. Management Plane\n 1.1 Local Authentication, Authorization and Accounting (AAA) Rules"
+  description: "AAA configuration"
+  check:
+  - name: "Enable_aaa_new-model"
+    description: "1.1.1 Enable aaa new-model"
+    score: 1
+    rule: "1.1.1"
+    level: 1
+    status: "yes"
+  - name: "Enable_aaa_authentication_login"
+    description: "1.1.2 Enable aaa authentication login"
+    score: 1
+    rule: "1.1.2"
+    level: 1
+    status: "yes"
+  - name: "Enable_aaa_authentication_enable_default"
+    description: "1.1.3 Enable aaa authentication enable default"
+    score: 1
+    rule: "1.1.3"
+    level: 1
+    status: "yes"
+  - name: "Set_login_authentication_for_line_con_0"
+    description: "1.1.4 Set login authentication for line con 0"
+    score: 1
+    rule: "1.1.4"
+    level: 1
+    status: "yes"
+  - name: "Set_login_authentication_for_line_tty"
+    description: "1.1.5 Set login authentication for line tty"
+    score: 1
+    rule: "1.1.5"
+    level: 1
+    status: "yes"
+  - name: "Set_login_authentication_for_line_vty"
+    description: "1.1.6 Set login authentication for line vty"
+    score: 1
+    rule: "1.1.6"
+    level: 1
+    status: "yes"
+  - name: "Set_aaa_accounting_to_log_all_privileged_use_commands_using_commands_15"
+    description: "1.1.7 Set aaa accounting to log all privileged use commands using commands 15"
+    score: 1
+    rule: "1.1.7"
+    level: 2
+    status: "yes"
+  - name: "Set_aaa_accounting_connection"
+    description: "1.1.8 Set aaa accounting connection"
+    score: 1
+    rule: "1.1.8"
+    level: 2
+    status: "yes"
+  - name: "Set_aaa_accounting_exec"
+    description: "1.1.9 Set aaa accounting exec"
+    score: 1
+    rule: "1.1.9"
+    level: 2
+    status: "yes"
+  - name: "Set_aaa_accounting_network"
+    description: "1.1.10 Set aaa accounting network"
+    score: 1
+    rule: "1.1.10"
+    level: 2
+    status: "yes"
+  - name: "Set_aaa_accounting_system"
+    description: "1.1.11 Set aa accounting system"
+    score: 1
+    rule: "1.1.11"
+    level: 2
+    status: "yes"
+- section: " 1.2 Access Rules"
+  description: "Lines configuration"
+  check:
+  - name: "Set_privilege_1_for_local_users"
+    description: "1.2.1 Set privilege 1 for local users"
+    score: 1
+    rule: "1.2.1"
+    level: 1
+    status: "yes"
+  - name: "Set_transport_input_ssh_for_line_vty_connections"
+    description: "1.2.2 Set transport input ssh for line vty connections"
+    score: 1
+    rule: "1.2.2"
+    level: 1
+    status: "yes"
+  - name: "Set_no_exec_for_line_aux_0"
+    description: "1.2.3 Set no exec for line aux 0"
+    score: 1
+    rule: "1.2.3"
+    level: 1
+    status: "yes"
+  - name: "Create_access-list_for_use_with_line_vty"
+    description: "1.2.4 Create access-list for use with line vty"
+    score: 1
+    rule: "1.2.4"
+    level: 1
+    status: "yes"
+  - name: "Set_access-class_for_line_vty"
+    description: "1.2.5 Set access-class for line vty"
+    score: 1
+    rule: "1.2.5"
+    level: 1
+    status: "yes"
+  - name: "Set_exec-timeout_to_less_than_or_equal_to_10_minutes_for_line_aux_0"
+    description: "1.2.6 Set exec-timeout to less than or equal to 10 minutes for line aux 0"
+    score: 1
+    rule: "1.2.6"
+    level: 1
+    status: "yes"
+  - name: "Set_exec-timeout_to_less_than_or_equal_to_10_minutes_line_console_0"
+    description: "1.2.7 Set exec-timeout to less than or equal to 10 minutes line console 0"
+    score: 1
+    rule: "1.2.7"
+    level: 1
+    status: "yes"
+  - name: "Set_exec-timeout_less_than_or_equal_to_10_minutes_line_tty"
+    description: "1.2.8 Set exec-timeout less than or equal to 10 minutes line tty"
+    score: 1
+    rule: "1.2.8"
+    level: 1
+    status: "yes"
+  - name: "Set_exec-timeout_to_less_than_or_equal_to_10_minutes_line_vty"
+    description: "1.2.9 Set exec-timeout to less than or equal to 10 minutes line vty"
+    score: 1
+    rule: "1.2.9"
+    level: 1
+    status: "yes"
+  - name: "Set_transport_input_none_for_line_aux_0"
+    description: "1.2.10 Set transport input none for line aux 0"
+    score: 1
+    rule: "1.2.10"
+    level: 1
+    status: "yes"
+- section: " 1.3 Banner Rules"
+  description: "Banner and enable configuration"
+  check:
+  - name: "Set_the_banner-text_for_banner_exec"
+    description: "1.3.1 Set the banner-text for banner exec"
+    score: 1
+    rule: "1.3.1"
+    level: 1
+    status: "yes"
+  - name: "Set_the_banner-text_for_banner_login"
+    description: "1.3.2 Set the banner-text for banner login"
+    score: 1
+    rule: "1.3.2"
+    level: 1
+    status: "yes"
+  - name: "Set_the_banner-text_for_banner_motd"
+    description: "1.3.3 Set the banner-text for banner motd"
+    score: 1
+    rule: "1.3.3"
+    level: 1
+    status: "yes"
+- section: " 1.4 Password Rules"
+  description: "Passwords configuration"
+  check:
+  - name: "Set_password_for_enable_secret"
+    description: "1.4.1 Set password for enable secret"
+    score: 1
+    rule: "1.4.1"
+    level: 1
+    status: "yes"
+  - name: "Enable_service_password-encryption"
+    description: "1.4.2 Enable service password-encryption"
+    score: 1
+    rule: "1.4.2"
+    level: 1
+    status: "yes"
+  - name: "Set_username_secret_for_all_local_users"
+    description: "1.4.3 Set username secret for all local users"
+    score: 1
+    rule: "1.4.3"
+    level: 1
+    status: "yes"
+- section: " 1.5 SNMP Rules"
+  description: "SNMP configuration"
+  check:
+  - name: "Set_no_snmp-server_to_disable_SNMP_when_unused"
+    description: "1.5.1 Set no snmp-server to disable SNMP when unused"
+    score: 1
+    rule: "1.5.1"
+    level: 1
+    status: "yes"
+  - name: "Unset_private_for_snmp-server_community"
+    description: "1.5.2 Unset private for snmp-server community"
+    score: 1
+    rule: "1.5.2"
+    level: 1
+    status: "yes"
+  - name: "Unset_public_for_snmp-server_community"
+    description: "1.5.3 Unset public for snmp-server community"
+    score: 1
+    rule: "1.5.3"
+    level: 1
+    status: "yes"
+  - name: "Do_not_set_RW_for_any_snmp-server_community"
+    description: "1.5.4 Do not set RW for any snmp-server community"
+    score: 1
+    rule: "1.5.4"
+    level: 1
+    status: "yes"
+  - name: "Set_the_ACL_for_each_snmp-server_community"
+    description: "1.5.5 Set the ACL for each snmp-server community" 
+    score: 1
+    rule: "1.5.5"
+    level: 1
+    status: "yes"
+  - name: "Create_an_access-list_for_use_with_SNMP"
+    description: "1.5.6 Create an access-list for use with SNMP"
+    score: 1
+    rule: "1.5.6"
+    level: 1
+    status: "yes"
+  - name: "Set_snmp-server_host_when_using_SNMP"
+    description: "1.5.7 Set snmp-server host when using SNMP"
+    score: 1
+    rule: "1.5.7"
+    level: 1
+    status: "yes"
+  - name: "Set_snmp-server_enable_traps_snmp"
+    description: "1.5.8 Set snmp-server enable traps snmp"
+    score: 1 
+    rule: "1.5.8"
+    level: 1
+    status: "yes"
+  - name: "Set_priv_for_each_snmp-server_group_using_SNMPv3"
+    description: "1.5.9 Set priv for each snmp-server group using SNMPv3"
+    score: 1 
+    rule: "1.5.9"
+    level: 2
+    status: "yes"
+  - name: "Require_aes_128_as_minimum_for_snmp-server_user_when_using_SNMPv3"
+    description: "1.5.10 Require aes 128 as minimum for snmp-server user when using SNMPv3"
+    score: 1 
+    rule: "1.5.10"
+    level: 2
+    status: "yes"
+- section: "2. Control Plane\n 2.1 Gloabal Service Rules\n  2.1.1 Setup SSH"
+  description: "Control Plane parameters configuration"
+  check:
+  - name: "Set_the_hostname"
+    description: "2.1.1.1.1 Set the hostname" 
+    score: 1
+    rule: "2.1.1.1.1"
+    level: 1
+    status: "yes"
+  - name: "Set_the_ip_domain_name"
+    description: "2.1.1.1.2 Set the ip domain name"
+    score: 1
+    rule: "2.1.1.1.2"
+    level: 1
+    status: "yes"
+  - name: "Set_modulus_to_greater_than_or_equal_to_2048_for_crypto_key_generate_rsa"
+    description: "2.1.1.1.3 Set modulus to greater than or equal to 2048 for crypto key generate rsa"
+    score: 1
+    rule: "2.1.1.1.3"
+    level: 1
+    status: "yes"
+  - name: "Set_seconds_for_ip_ssh_timeout"
+    description: "2.1.1.1.4 Set seconds for ip ssh timeout" 
+    score: 1
+    rule: "2.1.1.1.4"
+    level: 1
+    status: "yes"
+  - name: "Set_maximimum_value_for_ip_ssh_authentication-retries"
+    description: "2.1.1.1.5 Set maximimum value for ip ssh authentication-retries"
+    score: 1
+    rule: "2.1.1.1.5"
+    level: 1
+    status: "yes"
+  - name: "Set_version_2_for_ip_ssh_version"
+    description: "2.1.1.2 Set version 2 for ip ssh version"
+    score: 1
+    rule: "2.1.1.2"
+    level: 1
+    status: "yes"
+  - name: "Set_no_cdp_run"
+    description: "2.1.2 Set no cdp run"
+    score: 1
+    rule: "2.1.2"
+    level: 1
+    status: "yes"
+  - name: "Set_no_ip_bootp_server"
+    description: "2.1.3 Set no ip bootp server"
+    score: 1
+    rule: "2.1.3"
+    level: 1
+    status: "yes"
+  - name: "Set_no_service_dhcp"
+    description: "2.1.4 Set no service dhcp"
+    score: 1
+    rule: "2.1.4"
+    level: 1
+    status: "yes"
+  - name: "Set_no_ip_identd"
+    description: "2.1.5 Set no ip identd"
+    score: 1
+    rule: "2.1.5"
+    level: 1
+    status: "yes"
+  - name: "Set_service_tcp-keepalives-in"
+    description: "2.1.6 Set service tcp-keepalives-in"
+    score: 1
+    rule: "2.1.6"
+    level: 1
+    status: "yes"
+  - name: "Set_service_tcp-keepalives-out"
+    description: "2.1.7 Set service tcp-keepalives-out"
+    score: 1
+    rule: "2.1.7"
+    level: 1
+    status: "yes"
+  - name: "Set_no_service_pad"
+    description: "2.1.8 Set no service pad"
+    score: 1
+    rule: "2.1.8"
+    level: 1
+    status: "yes"
+- section: " 2.2 Logging Rules"
+  description: "Logging configuration"
+  check:
+  - name: "Set_logging_on"
+    description: "2.2.1 Set logging on"
+    score: 1
+    rule: "2.2.1"
+    level: 1
+    status: "yes"
+  - name: "Set_buffer_size_for_logging_buffered"
+    description: "2.2.2 Set buffer size for logging buffered"
+    score: 1
+    rule: "2.2.2"
+    level: 1
+    status: "yes"
+  - name: "Set_logging_console_critical"
+    description: "2.2.3 Set logging console critical"
+    score: 1
+    rule: "2.2.3"
+    level: 1
+    status: "yes"
+  - name: "Set_IP_address_for_logging_host"
+    description: "2.2.4 Set IP address for logging_host"
+    score: 1
+    rule: "2.2.4"
+    level: 1
+    status: "yes"
+  - name: "Set_logging_trap_informational"
+    description: "2.2.5 Set logging trap informational"
+    score: 1
+    rule: "2.2.5"
+    level: 1
+    status: "yes"
+  - name: "Set_service_timestamps_debug_datetime"
+    description: "2.2.6 Set service timestamps debug datetime"
+    score: 1
+    rule: "2.2.6"
+    level: 1
+    status: "yes"
+  - name: "Set_logging_source_interface"
+    description: "2.2.7 Set logging source interface"
+    score: 1
+    rule: "2.2.7"
+    level: 1
+    status: "yes"
+- section: " 2.3 NTP Rules\n  2.3.1 Require Encryption Keys for NTP"
+  description: "Require Encryption Keys for NTP"
+  check:
+  - name: "Set_ntp_authenticate"
+    description: "2.3.1.1 Set ntp authenticate"
+    score: 1
+    rule: "2.3.1.1"
+    level: 2
+    status: "yes"
+  - name: "Set_ntp_authentication-key"
+    description: "2.3.1.2 Set ntp authentication-key"
+    score: 1
+    rule: "2.3.1.2"
+    level: 2
+    status: "yes"
+  - name: "Set_the_ntp_trusted-key"
+    description: "2.3.1.3 Set the ntp trusted-key"
+    score: 1
+    rule: "2.3.1.3"
+    level: 2
+    status: "yes"
+  - name: "Set_key_for_each_ntp_server"
+    description: "2.3.1.4 Set_key_for_each_ntp_server"
+    score: 1
+    rule: "2.3.1.4"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_address_for_ntp_server"
+    description: "2.3.2 Set ip address for ntp server"
+    score: 1
+    rule: "2.3.2"
+    level: 1
+    status: "yes"
+- section: " 2.4 Loopback Rules"
+  description: "Loopback Rules"
+  check:
+  - name: "Create_a_single_interface_loopback"
+    description: "2.4.1 Create a single interface loopback"
+    score: 1
+    rule: "2.4.1"
+    level: 2
+    status: "yes"
+  - name: "Set_AAA_source-interface"
+    description: "2.4.2 Set AAA source-interface"
+    score: 1
+    rule: "2.4.2"
+    level: 2
+    status: "yes"
+  - name: "Set_ntp_source_to_Loopback_Interface"
+    description: "2.4.3 Set ntp source to Loopback Interface"
+    score: 1
+    rule: "2.4.3"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_tftp_source-interface_to_the_Loopback_Interface"
+    description: "2.4.4 Set ip tftp source-interface to the Loopback Interface"
+    score: 1
+    rule: "2.4.4"
+    level: 2
+    status: "yes"
+- section: "3. Data Plane\n 3.1 Routing Rules"
+  description: "Routing Rules"
+  check:
+  - name: "Set_no_ip_source-route"
+    description: "3.1.1 Set no ip source-route"
+    score: 1
+    rule: "3.1.1"
+    level: 1
+    status: "yes"
+  - name: "Set_no_ip_proxy-arp"
+    description: "3.1.2 Set no ip proxy-arp (manual)"
+    score: 1
+    rule: "3.1.2"
+    level: 2
+    status: "yes"
+  - name: "Set_no_interface_tunnel"
+    description: "3.1.3 Set no interface tunnel"
+    score: 1
+    rule: "3.1.3"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_verify_unicast_source_reachable-via"
+    description: "3.1.4 Set ip verify unicast source reachable-via (manual)"
+    score: 1
+    rule: "3.1.4"
+    level: 2
+    status: "yes"
+- section: " 3.2 Border Router Filtering"
+  description: "Border Router Filtering"
+  check:
+  - name: "Set_ip_access-list_extended_to_Forbid_Private_Source_Addresses_from_External_Networks"
+    description: "3.2.1 Set extended ACL to Forbid Private Source Addresses from External"
+    score: 0
+    rule: "3.2.1"
+    level: 2
+    status: "yes"
+  - name: "Set_inbound_ip_access-group_on_the_External_Interface"
+    description: "3.2.2 Set_inbound_ip_access-group_on_the_External_Interface"
+    score: 0
+    rule: "3.2.2"
+    level: 2
+    status: "yes"
+- section: " 3.3 Neighbor Authentication\n  3.3.1 Require EIGRP Authentication if Protocol is Used"
+  description: "Require EIGRP Authentication if Protocol is Used"
+  check:
+  - name: "Set_key_chain_eigrp"
+    description: "3.3.1.1 Set key chain"
+    score: 1
+    rule: "3.3.1.1"
+    level: 2
+    status: "yes"
+  - name: "Set_key_eigrp"
+    description: "3.3.1.2 Set key"
+    score: 1
+    rule: "3.3.1.2"
+    level: 2
+    status: "yes"
+  - name: "Set_key-string_eigrp"
+    description: "3.3.1.3 Set key-string"
+    score: 1
+    rule: "3.3.1.3"
+    level: 2
+    status: "yes"
+  - name: "Set_address-family_ipv4_autonomous-system"
+    description: "3.3.1.4 Set address-family ipv4 autonomous-system"
+    score: 1
+    rule: "3.3.1.4"
+    level: 2
+    status: "yes"
+  - name: "Set_af-interface_default"
+    description: "3.3.1.5 Set af-interface default"
+    score: 1
+    rule: "3.3.1.5"
+    level: 2
+    status: "yes"
+  - name: "Set_authentication_key-chain"
+    description: "3.3.1.6 Set authentication key-chain"
+    score: 1
+    rule: "3.3.1.6"
+    level: 2
+    status: "yes"
+  - name: "Set_authentication_mode_md5"
+    description: "3.3.1.7 Set authentication mode md5"
+    score: 1
+    rule: "3.3.1.7"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_authentication_key-chain_eigrp"
+    description: "3.3.1.8 Set ip authentication key-chain eigrp"
+    score: 1
+    rule: "3.3.1.8"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_authentication_mode_eigrp"
+    description: "3.3.1.9 Set ip authentication mode eigrp"
+    score: 1
+    rule: "3.3.1.9"
+    level: 2
+    status: "yes"
+- section: "  3.3.2 Require OSPF Authentication if Protocol is Used"
+  description: "Require OSPF Authentication if Protocol is Used"
+  check:
+  - name: "Set_authentication_message-digest_for_OSPF_area"
+    description: "3.3.2.1 Set authentication message-digest for OSPF area"
+    score: 1
+    rule: "3.3.2.1"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_ospf_message-digest-key_md5"
+    description: "3.3.2.2 Set ip ospf message-digest-key md5"
+    score: 1
+    rule: "3.3.2.2"
+    level: 2
+    status: "yes"
+- section: "  3.3.3 Require RIPv2 Authentication if Protocol is Used"
+  description: "Require RIPv2 Authentication if Protocol is Used"
+  check:
+  - name: "Set_key_chain_rip"
+    description: "3.3.3.1 Set key chain"
+    score: 1
+    rule: "3.3.3.1"
+    level: 2
+    status: "yes"
+  - name: "Set_key_rip"
+    description: "3.3.3.2 Set key"
+    score: 1
+    rule: "3.3.3.2"
+    level: 2
+    status: "yes"
+  - name: "Set_key-string_rip"
+    description: "3.3.3.3 Set key-string"
+    score: 1
+    rule: "3.3.3.3"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_rip_authentication_key-chain"
+    description: "3.3.3.4 Set ip rip authentication key-chain"
+    score: 1
+    rule: "3.3.3.4"
+    level: 2
+    status: "yes"
+  - name: "Set_ip_rip_authentication_mode_to_md5"
+    description: "3.3.3.5 Set ip rip authentication mode to md5"
+    score: 1
+    rule: "3.3.3.5"
+    level: 2
+    status: "yes"
+- section: "  3.3.4 Require BGP Authentication if Protocol is Used"
+  description: "Require BGP Authentication if Protocol is Used"
+  check:
+  - name: "Set_neighbor_password"
+    description: "3.3.4.1 Set neighbor password"
+    score: 1
+    rule: "3.3.4.1"
+    level: 2
+    status: "yes"
+

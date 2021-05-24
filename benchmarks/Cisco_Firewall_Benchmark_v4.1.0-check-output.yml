@@ -1,0 +1,810 @@
+# 
+# 1 Management Plane\n 1.1 Password Management
+#
+Ensure_Logon_Password_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show running-config passwd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'passwd .+ encrypted'
+Ensure_Enable_Password_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run enable'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enable password .+ encrypted'
+Ensure_Master_Key_Passphrase_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | in key.6'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'key 6 .+'
+Ensure_Password_Recovery_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | in no.service.password-recovery'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_Password_Policy_is_enabled:
+  dependency:
+  script: 'Ensure_Password_Policy_is_enabled'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+# 
+#  1.2 Device Management
+#
+Ensure_Domain_Name_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run domain-name'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_Host_Name_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run hostname'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_Failover_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run failover | grep -v no'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_Unused_Interfaces_is_disable:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh int ip brief | in __down'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+#  1.3 Image security
+#
+Ensure_Image_Integrity_is_correct:
+  dependency:
+  script: 'Ensure_Image_Integrity_is_correct'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_Image_Authenticity_is_correct:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show software authenticity running | in CiscoSystems'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'CiscoSystems'
+# 
+#  1.4 Authentication, Authorization and Accounting\n  1.4.1 Local AAA rules
+#
+Ensure_aaa_local_authentication_max_failed_attempts_is_set_to_less_than_or_:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa | in max-fail'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa local authentication attempts max-fail [123]'
+Ensure_local_username_and_password_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: 'show running-config username'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'username \w+ password \w+$'
+Ensure_known_default_accounts_do_not_exist:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show running-config username | in _admin_|_asa_|_cisco_|_pix_|_root_'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+#   1.4.2 Remote AAA servers
+#
+Ensure_TACACS+/RADIUS_is_configured_correctly:
+  dependency:
+  script: 'Ensure_TACACS_RADIUS_is_configured_correctly'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#   1.4.3 AAA authentication
+#
+Ensure_aaa_authentication_enable_console_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | i aaa authentication enable console'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication enable console .+'
+Ensure_aaa_authentication_http_console_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa authentication | i http.console'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication http console .+'
+Ensure_aaa_authentication_secure-http-client_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | i aaa authentication secure-http-client'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication secure-http-client'
+Ensure_aaa_authentication_serial_console_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa authentication | i serial.console'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication serial console .+'
+Ensure_aaa_authentication_ssh_console_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa authentication | i ssh.console'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication ssh console .+'
+Ensure_aaa_authentication_telnet_console_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa authentication | i telnet.console'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication telnet console .+'
+# 
+#   1.4.4 AAA Authorization
+#
+Ensure_aaa_command_authorization_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa authorization | i command'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authorization command .+'
+Ensure_aaa_authorization_exec_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa authorization | in exec'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authorization exec .+'
+# 
+#   1.4.5 AAA Accounting
+#
+Ensure_aaa_command_accounting_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa accounting | in command'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting command .+'
+Ensure_aaa_accounting_for_SSH_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa accounting | in ssh'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting ssh console .+'
+Ensure_aaa_accounting_for_Serial_console_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa accounting | in serial'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting serial console .+'
+Ensure_aaa_accounting_for_EXEC_mode_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run aaa accounting | in enable'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting command .+'
+# 
+#  1.5 Banner Rules
+#
+Ensure_ASDM_banner_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run banner asdm | i banner.asdm'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_EXEC_banner_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run banner exec | i banner.exec'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_LOGIN_banner_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run banner login | i banner.login'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_MOTD_banner_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run banner motd | i banner.motd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+# 
+#  1.6 SSH rules
+#
+Ensure_SSH_source_restriction_is_set_to_an_authorized_IP_address:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ssh'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ssh [\d\.]+ [\d\.]+ '
+Ensure_SSH_version_2_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ssh version | in 2'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ssh version 2'
+Ensure_RSA_key_pair_is_greater_than_or_equal_to_2048_bits:
+  dependency:
+  script: 'Ensure_RSA_key_pair_is_greater_than_or_equal_to_2048_bits'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_SCP_protocol_is_set_to_Enable_for_files_transfers:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ssh | grep scopy'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ssh scopy enable'
+Ensure_Telnet_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run telnet | incl telnet'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'telnet [\d\.]+ [\d\.]+ .+'
+# 
+#  1.7 HTTP rules
+#
+Ensure_HTTP_source_restriction_is_set_to_an_authorized_IP_address:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run http | i http'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'http [\d\.]+ [\d\.]+ .+'
+Ensure_TLS_1.0_is_set_for_HTTPS_access:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: 'sh run ssl | in encryption.aes256-sha1$'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ssl encryption aes256-sha1'
+  - command: "sh run ssl | in custom_'AES256-SHA'$"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: "ssl cipher tlsv1 custom "
+Ensure_SSL_AES_256_encryption_is_set_for_HTTPS_access:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ssl | in encryption.aes256-sha1$'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ssl encryption aes256-sha1'
+  - command: "sh run ssl | in custom_'AES256-SHA'$"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ssl cipher tlsv1 custom '
+# 
+#  1.8 Session timeout
+#
+Ensure_console_session_timeout_is_less_than_or_equal_to_5_minutes:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run console timeout'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'console timeout [1-5]\s?$'
+Ensure_SSH_session_timeout_is_less_than_or_equal_to_5_minutes:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ssh | in timeout'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ssh timeout [1-5]\s?$'
+Ensure_HTTP_session_timeout_is_less_than_or_equal_to_5_minutes:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run http | in timeout'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'http timeout [1-5]\s?$'
+# 
+#  1.9 Clock rules\n  1.9.1 NTP rules
+#
+Ensure_NTP_authentication_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ntp | in authenticate'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp authenticate'
+Ensure_NTP_authentication_key_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ntp | in authentication-key'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp authentication-key \d+ md5 \*+'
+Ensure_trusted_NTP_server_exists:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run ntp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp server [\d\.]+ key \d+ source .+'
+Ensure_local_timezone_is_properly_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run clock'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'clock timezone .+'
+# 
+#  1.10 Logging Rules
+#
+Ensure_logging_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in enable'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging enable'
+Ensure_logging_to_Serial_console_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | grep console'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'logging console'
+Ensure_logging_to_monitor_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | grep monitor'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'logging monitor'
+Ensure_syslog_hosts_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | i host'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging host .+ [\d\.]+'
+Ensure_logging_with_the_device_ID_is_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in device-id'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging device-id .+'
+Ensure_logging_history_severity_level_is_set_to_greater_than_or_equal_to_5:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in history'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging history [5-7]'
+Ensure_logging_with_timestamps_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | grep timestamp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging timestamp'
+Ensure_syslog_logging_facility_is_equal_to_23:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in facility.23'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging facility 23'
+Ensure_logging_buffer_size_is_greater_than_or_equal_to_524288_bytes_(512kb):
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in buffer-size.524288'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging buffer-size 524288'
+Ensure_logging_buffered_severity_level_is_greater_than_or_equal_to_3:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in buffered'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging buffered [3-7]'
+Ensure_logging_trap_severity_level_is_greater_than_or_equal_to_5:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in trap'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging trap [5-7]'
+Ensure_email_logging_is_configured_for_critical_to_emergency:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run logging | in mail'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging mail critical'
+# 
+#  1.11 SNMP Rules
+#
+Ensure_snmp-server_group_is_set_to_v3_priv:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run snmp-server group | i v3.priv'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server group v3 .+ priv'
+Ensure_snmp-server_user_is_set_to_v3_auth_SHA:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run snmp-server user | i auth.SHA'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server user .+ .+ v3 auth SHA .+ priv AES 256 .+'
+Ensure_snmp-server_host_is_set_to_version_3:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run snmp-server host | i version.3'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server host .+ [\d\.]+ version 3 .+'
+Ensure_SNMP_traps_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0]) and res[1] and res[2] and res[3]'
+  commands:
+  - command: 'sh run | in traps.snmp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server enable traps snmp authentication'
+  - command: 'sh run | in traps.snmp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server enable traps snmp coldstart'
+  - command: 'sh run | in traps.snmp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server enable traps snmp linkdown'
+  - command: 'sh run | in traps.snmp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server enable traps snmp linkup'
+Ensure_SNMP_community_string_is_not_the_default_string:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show snmp-server group | in _public'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+# 2 Control Plane\n 2.1 Routing protocols authentication
+#
+Ensure_RIP_authentication_is_enabled:
+  dependency: 'if_rip_configured'
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | in rip.authentication.key'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'rip authentication key \*+ key_id \d+'
+Ensure_OSPF_authentication_is_enabled:
+  dependency: 'if_ospf_configured'
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | in ospf.message-digest-key'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ospf message-digest-key \*+'
+Ensure_EIGRP_authentication_is_enabled:
+  dependency: 'if_eigrp_configured'
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | in authentication.key.eigrp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'authentication key eigrp \d+ \*+ key-id \d+'
+Ensure_noproxyarp_is_enabled_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_noproxyarp_is_enabled_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_DNS_Guard_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show running-config dns-guard'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'dns-guard'
+Ensure_DHCP_services_are_disabled_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_DHCP_services_are_disabled_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_ICMP_is_restricted_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_ICMP_is_restricted_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+# 3 Data Plane
+#
+Ensure_DNS_services_are_configured_correctly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | in domain-lookup'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'dns domain-lookup .+'
+Ensure_intrusion_prevention_is_enabled_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_intrusion_prevention_is_enabled_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_packet_fragments_are_restricted_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_packet_fragments_are_restricted_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_non-default_application_inspection_is_configured_correctly:
+  dependency:
+  script: 'Ensure_non_default_application_inspection_is_configured_correctly'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_DOS_protection_is_enabled_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_DOS_protection_is_enabled_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_threat-detection_statistics_is_set_to_tcp-intercept:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run all threat-detection | in tcp-intercept'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'threat-detection statistics tcp-intercept rate-interval \d+ burst-rate \d+ average-rate \d+'
+Ensure_ip_verify_is_set_to_reverse-path_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_ip_verify_is_set_to_reverse_path_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_security-level_is_set_to_0_for_Internet-facing_interface:
+  dependency:
+  script: 'Ensure_security_level_is_set_to_0_for_Internet_facing_interface'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_Botnet_protection_is_enabled_for_untrusted_interfaces:
+  dependency:
+  script: 'Ensure_Botnet_protection_is_enabled_for_untrusted_interfaces'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_ActiveX_filtering_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run filter | i activex'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'filter activex .+'
+Ensure_Java_applet_filtering_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run filter | i java'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'filter java '
+Ensure_explicit_deny_in_access_lists_is_configured_correctly:
+  dependency:
+  script: 'Ensure_explicit_deny_in_access_lists_is_configured_correctly'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+

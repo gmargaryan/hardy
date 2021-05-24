@@ -1,0 +1,18 @@
+{% for j in sections %}
+# 
+# {{j.section}}
+#
+  {% for i in j.descriptions %}
+{{i.name}}:
+  dependency:
+  script:
+  parameter_1:
+  parameter_2:
+  logical_exp: 'and'
+  command_seq:
+  - command: ''
+    pattern: ''
+    logic: 'positive'
+  {%endfor%}
+
+{%endfor %}

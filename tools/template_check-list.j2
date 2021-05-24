@@ -1,0 +1,14 @@
+check_list:
+{% for j in sections %}
+- section: "{{j.section}}"
+  description:
+  check:
+  {% for i in j.descriptions %}
+  - name: "{{i.name}}"
+    description: "{{i.description}}"
+    score: {{i.score}}
+    rule: "{{i.rule}}"
+    level: 1
+    status: "yes"
+  {%endfor%}
+{%endfor%}

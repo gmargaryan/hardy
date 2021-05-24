@@ -1,0 +1,2837 @@
+# 
+# 1 Initial Setup\n 1.1 Filesystem Configuration 1.1.1 Disable unused filesystems
+#
+Ensure_mounting_of_cramfs_filesystems_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v cramfs | grep -v mtd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep cramfs'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_mounting_of_freevxfs_filesystems_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v freevxfs'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep freevxfs'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_mounting_of_jffs2_filesystems_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v jffs2 | grep -v mtd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep jffs2'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_mounting_of_hfs_filesystems_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v hfs'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep hfs'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_mounting_of_hfsplus_filesystems_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v hfsplus'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep hfsplus'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_mounting_of_squashfs_filesystems_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe --showconfig | grep squashfs'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install squashfs /bin/true'
+  - command: 'lsmod | grep squashfs'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_mounting_of_udf_filesystems_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v udf | grep -v crc-itu-t'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep udf'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_mounting_of_FAT_filesystems_is_limited:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe --showconfig | grep vfat'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install vfat /bin/true'
+  - command: 'lsmod | grep vfat'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_/tmp_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'res[0] and (res[1] or res[2])'
+  commands:
+  - command: "mount | grep -E '\\s/tmp\\s'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'tmpfs on /tmp type tmpfs .*'
+  - command: "grep -E '\\s/tmp\\s' /etc/fstab | grep -E -v '^\\s*#'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'tmpfs /tmp tmpfs defaults,noexec,nosuid,nodev 0 0'
+  - command: 'systemctl is-enabled tmp.mount'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_nodev_option_set_on_/tmp_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/tmp\\s' | grep -v nodev"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_nosuid_option_set_on_/tmp_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/tmp\\s' | grep -v nosuid"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_noexec_option_set_on_/tmp_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/tmp\\s' | grep -v noexec"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_separate_partition_exists_for_/var:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/var\\s'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '/dev/xvdg1 on /var type ext4 .*'
+Ensure_separate_partition_exists_for_/var/tmp:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'mount | grep /var/tmp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'on /var/tmp type ext4 .*'
+Ensure_nodev_option_set_on_/var/tmp_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/var/tmp\\s' | grep -v nodev"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_nosuid_option_set_on_/var/tmp_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/var/tmp\\s' | grep -v nosuid"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_noexec_option_set_on_/var/tmp_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/var/tmp\\s' | grep -v noexec"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_separate_partition_exists_for_/var/log:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'mount | grep /var/log'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '/dev/xvdh1 on /var/log type ext4 .*'
+Ensure_separate_partition_exists_for_/var/log/audit:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'mount | grep /var/log/audit'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '/dev/xvdi1 on /var/log/audit type ext4 .*'
+Ensure_separate_partition_exists_for_/home:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'mount | grep /home'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '/dev/xvdf1 on /home type ext4 .*'
+Ensure_nodev_option_set_on_/home_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/home\\s' | grep -v nodev"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_nodev_option_set_on_/dev/shm_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/dev/shm\\s' | grep -v nodev"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_nosuid_option_set_on_/dev/shm_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/dev/shm\\s' | grep -v nosuid"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_noexec_option_set_on_/dev/shm_partition:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "mount | grep -E '\\s/dev/shm\\s' | grep -v noexec"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_nodev_option_set_on_removable_media_partitions:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_nosuid_option_set_on_removable_media_partitions:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_noexec_option_set_on_removable_media_partitions:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_sticky_bit_is_set_on_all_world-writable_directories:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \\( -perm -0002 -a ! -perm -1000 \\)"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Disable_Automounting:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: 'systemctl is-enabled autofs'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'disabled'
+  - command: 'dpkg -s autofs'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: "package 'autofs' is not installed"
+Disable_USB_Storage:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v usb-storage'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep usb-storage'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+#  1.2 Configure Software Updates
+#
+Ensure_package_manager_repositories_are_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands: 
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_GPG_keys_are_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#  1.3 Configure sudo
+#
+Ensure_sudo_is_installed:
+  dependency:
+  script: 'manual' 
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_sudo_commands_use_pty:
+  dependency:
+  script: 
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep -Ei '^\\s*Defaults\\s+([^#]+,\\s*)?use_pty(,\\s+\\S+\\s*)*(\\s+#.*)?$' /etc/sudoers /etc/sudoers.d/*"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Defaults use_pty'
+Ensure_sudo_log_file_exists:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep -Ei '^\\s*Defaults\\s+logfile=\\S+' /etc/sudoers /etc/sudoers.d/*"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Defaults logfile=.+'
+# 
+#  1.4 Filesystem Integrity Checking
+#
+Ensure_AIDE_is_installed:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s aide'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Status: install ok installed'
+Ensure_filesystem_integrity_is_regularly_checked:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#  1.5 Secure Boot Settings
+#
+Ensure_permissions_on_bootloader_config_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /boot/grub/grub.cfg'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(\d\d00/-r--------\)\s*Uid:\s*\(\s*0/\s*root\)Gid:\s*\(\s*0/\s*root\)'
+Ensure_bootloader_password_is_set:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '^set superusers' /boot/grub/grub.cfg"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'set superusers=.+'
+  - command: "grep '^password' /boot/grub/grub.cfg"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'password_pbkdf2 .+'
+Ensure_authentication_required_for_single_user_mode:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep ^root:[*\!]: /etc/shadow'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_interactive_boot_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '^PROMPT_FOR_CONFIRM=' /etc/sysconfig/boot"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: "PROMPT_FOR_CONFIRM='no'"
+# 
+#  1.6 Additional Process Hardening
+#
+Ensure_XD/NX_support_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: "journalctl | grep protection"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'kernel: NX \(Execute Disable\) protection: active'
+  - command: "[[ -n $(grep noexec[0-9]*=off /proc/cmdline) || -z $(grep -E -i ' (pae|nx)' /proc/cpuinfo) || -n $(grep '\\sNX\\s.*\\sprotection:\\s' /var/log/dmesg | grep -v active) ]] && echo 'NX Protection is not active'"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_address_space_layout_randomization_(ASLR)_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl kernel.randomize_va_space'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'kernel.randomize_va_space = 2'
+  - command: "grep 'kernel.randomize_va_space' /etc/sysctl.conf /etc/sysctl.d/*"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'kernel.randomize_va_space = 2'
+Ensure_prelink_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ' dpkg -s prelink'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'is not installed'
+Ensure_core_dumps_are_restricted:
+  dependency:
+  script:
+  logical_exp_cmd: 'res[0] and res[1] and res[2] and res[3]'
+  commands:
+  - command: "grep 'hard core' /etc/security/limits.conf /etc/security/limits.d/*"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'hard core 0'
+  - command: 'sysctl fs.suid_dumpable'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'fs.suid_dumpable = 0'
+  - command: "grep 'fs\\.suid_dumpable' /etc/sysctl.conf /etc/sysctl.d/*"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'fs.suid_dumpable = 0'
+  - command: 'systemctl is-enabled coredump.service'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'enabled'
+    - pattern: 'disabled'
+# 
+#  1.7 Mandatory Access Control\n  1.7.1 Configure AppArmor
+#
+Ensure_AppArmor_is_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "dpkg -s apparmor apparmor-utils | grep 'dpkg -s apparmor apparmor-utils'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Status: install ok installed'
+Ensure_AppArmor_is_enabled_in_the_bootloader_configuration:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '^\\s*linux' /boot/grub/grub.cfg | grep -v 'apparmor=1' | grep -v '/boot/memtest86+.bin'"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+  - command: "grep '^\\s*linux' /boot/grub/grub.cfg | grep -v 'security=apparmor' | grep -v '/boot/memtest86+.bin'"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_all_AppArmor_Profiles_are_in_enforce_or_complain_mode:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_all_AppArmor_Profiles_are_enforcing:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'apparmor_status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '0 profiles are in complain mode'
+    - pattern: '0 processes are unconfined'
+# 
+#  1.8 Warning Banners\n  1.8.1 Command Line Warning Banners
+#
+Ensure_message_of_the_day_is_configured_properly:
+  dependency:
+  script: 
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'cat /etc/motd'
+    logical_exp_ptrn: 'res[0] and not(res[1])'
+    patterns:
+    - pattern: '.+'
+    - pattern: 'No such file or directory'
+  - command: "grep -E -i -s \"(\\\\\\v|\\\\\\r|\\\\\\m|\\\\\\s|$(grep '^ID=' /etc/os-release | cut -d= -f2 | sed -e 's/\"//g'))\" /etc/motd"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_local_login_warning_banner_is_configured_properly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'cat /etc/issue'
+    logical_exp_ptrn: 'res[0] and not(res[1])'
+    patterns:
+    - pattern: '.+'
+    - pattern: 'No such file or directory'
+  - command: "grep -E -i \"(\\\\\\v|\\\\\\r|\\\\\\m|\\\\\\s|$(grep '^ID=' /etc/os-release | cut -d= -f2 | sed -e 's/\"//g'))\" /etc/issue"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_remote_login_warning_banner_is_configured_properly:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'cat /etc/issue.net'
+    logical_exp_ptrn: 'res[0] and not(res[1])'
+    patterns:
+    - pattern: '.+'
+    - pattern: 'No such file or directory'
+  - command: "grep -E -i \"(\\\\\\v|\\\\\\r|\\\\\\m|\\\\\\s|$(grep '^ID=' /etc/os-release | cut -d= -f2 | sed -e 's/\"//g'))\" /etc/issue.net"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_permissions_on_/etc/motd_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/motd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/issue_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/issue'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/issue.net_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/issue.net'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_GDM_login_banner_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'cat /etc/gdm3/greeter.dconf-defaults'
+    logical_exp_ptrn: 'not(res[0]) and res[1] and res[2] and res[3]'
+    patterns:
+    - pattern: 'No such file or directory'
+    - pattern: '\n\s*\[org/gnome/login-screen\]'
+    - pattern: '\n\s*banner-message-enable=true'
+    - pattern: "\\n\\s*banner-message-text='.*'"
+Ensure_updates,_patches,_and_additional_security_software_are_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'apt -s upgrade'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+# 2 Services\n 2.1 inetd Services
+#
+Ensure_xinetd_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s xinetd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: "package 'xinetd' is not installed"
+Ensure_openbsd-inetd_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s openbsd-inetd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: "package 'openbsd-inetd' is not installed"
+# 
+#  2.2 Special Purpose Services\n  2.2.1 Time Synchronization
+#
+Ensure_time_synchronization_is_in_use:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: 'systemctl is-enabled systemd-timesyncd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+  - command: 'dpkg -s chrony'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'is not installed'
+  - command: 'dpkg -s ntp'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'is not installed'
+Ensure_systemd-timesyncd_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled systemd-timesyncd.service'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+  - command: 'timedatectl status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'synchronized: yes'
+Ensure_chrony_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep -E \"^(server|pool)\" /etc/chrony.conf"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'server .*'
+  - command: "ps -ef | grep chronyd"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'chrony'
+Ensure_ntp_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'res[0] and res[1] and (res[2] or res[3] or res[4])'
+  commands:
+  - command: "grep \"^restrict\" /etc/ntp.conf"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'restrict .* default'
+  - command: 'grep -E "^(server|pool)" /etc/ntp.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'server .+'
+  - command: 'grep "^OPTIONS" /etc/sysconfig/ntpd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'OPTIONS="-u ntp:ntp"'
+  - command: 'grep "^NTPD_OPTIONS" /etc/sysconfig/ntp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'OPTIONS="-u ntp:ntp"'
+  - command: 'grep "RUNASUSER=ntp" /etc/init.d/ntp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'RUNASUSER=ntp'
+Ensure_X_Window_System_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -l xserver-xorg*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'no packages found'
+Ensure_Avahi_Server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled avahi-daemon'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_CUPS_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled cups'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_DHCP_Server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled isc-dhcp-server'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+  - command: 'systemctl is-enabled isc-dhcp-server6'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_LDAP_server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled slapd'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_NFS_and_RPC_are_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled nfs-server'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+  - command: 'systemctl is-enabled rpcbind'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_DNS_Server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled bind9'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_FTP_Server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled vsftpd'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_HTTP_server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled apache2'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_email_services_are_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled dovecot'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_Samba_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'systemctl is-enabled smbd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_HTTP_Proxy_Server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'systemctl is-enabled squid'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_SNMP_Server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled snmpd'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+Ensure_mail_transfer_agent_is_configured_for_local-only_mode:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "ss -lntu | grep -E ':25\\s' | grep -E -v '\\s\\(127\\.0\\.0\\.1|::1\\):25\\s'"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_rsync_service_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'systemctl is-enabled rsync'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_NIS_Server_is_not_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled nis'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'enabled'
+# 
+#  2.3 Service Clients
+#
+Ensure_NIS_Client_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s nis'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'is not installed'
+Ensure_rsh_client_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s rsh-client'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'is not installed'
+Ensure_talk_client_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s talk'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'is not installed'
+Ensure_telnet_client_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s telnet'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'is not installed'
+Ensure_LDAP_client_is_not_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s ldap-utils'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'is not installed'
+# 
+# 3 Network Configuration\n 3.1 Network Parameters (Host Only)
+#
+Ensure_packet_redirect_sending_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.conf.all.send_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.send_redirects = 0'
+  - command: 'sysctl net.ipv4.conf.default.send_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.send_redirects = 0'
+  - command: 'grep "net\.ipv4\.conf\.all\.send_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.send_redirects = 0'
+  - command: 'grep "net\.ipv4\.conf\.default\.send_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.send_redirects = 0'
+Ensure_IP_forwarding_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.ip_forward'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.ip_forward = 0'
+  - command: 'grep -E -s "^\s*net\.ipv4\.ip_forward\s*=\s*1" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+  - command: 'sysctl net.ipv6.conf.all.forwarding'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.all.forwarding = 0'
+  - command: 'grep -E -s "^\s*net\.ipv6\.conf\.all\.forwarding\s*=\s*1" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+#  3.2 Network Parameters (Host and Router)
+#
+Ensure_source_routed_packets_are_not_accepted:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.conf.all.accept_source_route'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.accept_source_route = 0'
+  - command: 'sysctl net.ipv4.conf.default.accept_source_route'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.accept_source_route = 0'
+  - command: 'grep "net\.ipv4\.conf\.all\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.accept_source_route = 0'
+  - command: 'grep "net\.ipv4\.conf\.default\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.accept_source_route = 0'
+  - command: 'sysctl net.ipv6.conf.all.accept_source_route'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.all.accept_source_route = 0'
+  - command: 'sysctl net.ipv6.conf.default.accept_source_route'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.default.accept_source_route = 0'
+  - command: 'grep "net\.ipv6\.conf\.all\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.all.accept_source_route = 0'
+  - command: 'grep "net\.ipv6\.conf\.default\.accept_source_route" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.default.accept_source_route = 0'
+Ensure_ICMP_redirects_are_not_accepted:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.conf.all.accept_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.accept_redirects = 0'
+  - command: 'sysctl net.ipv4.conf.default.accept_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.accept_redirects = 0'
+  - command: 'grep "net\.ipv4\.conf\.all\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.accept_redirects = 0'
+  - command: 'grep "net\.ipv4\.conf\.default\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.accept_redirects = 0'
+  - command: 'sysctl net.ipv6.conf.all.accept_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.all.accept_redirects = 0'
+  - command: 'sysctl net.ipv6.conf.default.accept_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.default.accept_redirects = 0'
+  - command: 'grep "net\.ipv6\.conf\.all\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.all.accept_redirects = 0'
+  - command: 'grep "net\.ipv6\.conf\.default\.accept_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.default.accept_redirects = 0'
+Ensure_secure_ICMP_redirects_are_not_accepted:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.conf.all.secure_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.secure_redirects = 0'
+  - command: 'sysctl net.ipv4.conf.default.secure_redirects'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.secure_redirects = 0'
+  - command: 'grep "net\.ipv4\.conf\.all\.secure_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.secure_redirects = 0'
+  - command: 'grep "net\.ipv4\.conf\.default\.secure_redirects" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.secure_redirects = 0'
+Ensure_suspicious_packets_are_logged:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.conf.all.log_martians'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.log_martians = 1'
+  - command: 'sysctl net.ipv4.conf.default.log_martians'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.log_martians = 1'
+  - command: 'grep "net\.ipv4\.conf\.all\.log_martians" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.log_martians = 1'
+  - command: 'grep "net\.ipv4\.conf\.default\.log_martians" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.log_martians = 1'
+Ensure_broadcast_ICMP_requests_are_ignored:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.icmp_echo_ignore_broadcasts'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.icmp_echo_ignore_broadcasts = 1'
+  - command: 'grep "net\.ipv4\.icmp_echo_ignore_broadcasts" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.icmp_echo_ignore_broadcasts = 1'
+Ensure_bogus_ICMP_responses_are_ignored:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.icmp_ignore_bogus_error_responses'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.icmp_ignore_bogus_error_responses = 1'
+  - command: 'grep "net.ipv4.icmp_ignore_bogus_error_responses" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.icmp_ignore_bogus_error_responses = 1'
+Ensure_Reverse_Path_Filtering_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.conf.all.rp_filter'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.rp_filter = 1'
+  - command: 'sysctl net.ipv4.conf.default.rp_filter'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.rp_filter = 1'
+  - command: 'grep "net\.ipv4\.conf\.all\.rp_filter" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.all.rp_filter = 1'
+  - command: 'grep "net\.ipv4\.conf\.default\.rp_filter" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.conf.default.rp_filter = 1'
+Ensure_TCP_SYN_Cookies_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv4.tcp_syncookies'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.tcp_syncookies = 1'
+  - command: 'grep "net\.ipv4\.tcp_syncookies" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv4.tcp_syncookies = 1'
+Ensure_IPv6_router_advertisements_are_not_accepted:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sysctl net.ipv6.conf.all.accept_ra'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.all.accept_ra = 0'
+  - command: 'sysctl net.ipv6.conf.default.accept_ra'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.default.accept_ra = 0'
+  - command: 'grep "net\.ipv6\.conf\.all\.accept_ra" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.all.accept_ra = 0'
+  - command: 'grep "net\.ipv6\.conf\.default\.accept_ra" /etc/sysctl.conf /etc/sysctl.d/*'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'net.ipv6.conf.default.accept_ra = 0'
+# 
+#  3.3 TCP Wrappers
+#
+Ensure_TCP_Wrappers_is_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s tcpd | grep Status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Status: install ok installed'
+Ensure_/etc/hosts.allow_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'cat /etc/hosts.allow'
+    logical_exp_ptrn: 'res[0] and not(res[1])'
+    patterns:
+    - pattern: '.+'
+    - pattern: 'No such file or directory'
+Ensure_/etc/hosts.deny_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'cat /etc/hosts.deny'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ALL: ALL'
+Ensure_permissions_on_/etc/hosts.allow_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/hosts.allow'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/hosts.deny_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/hosts.deny'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+# 
+#  3.4 Uncommon Network Protocols
+#
+Ensure_DCCP_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v dccp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep dccp'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.*'
+Ensure_SCTP_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v sctp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep sctp'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_RDS_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v rds'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep rds'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_TIPC_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'modprobe -n -v tipc'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install /bin/true'
+  - command: 'lsmod | grep tipc'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+#  3.5 Firewall Configuration\n  3.5.1 Ensure Firewall software is installed
+#
+Ensure_a_Firewall_package_is_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s ufw | grep -i status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Status: install ok installed'
+  - command: 'dpkg -s nftables | grep -i status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Status: install ok installed'
+  - command: 'dpkg -s iptables | grep -i status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Status: install ok installed'
+# 
+#   3.5.2 Configure UncomplicatedFirewall
+#
+Ensure_ufw_service_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled ufw'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+  - command: 'ufw status | grep Status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Status: active'
+Ensure_default_deny_firewall_policy:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'ufw status verbose | grep -i default'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'allow'
+Ensure_loopback_traffic_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'ufw status verbose'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Anywhere on lo\s+ALLOW IN.*'
+    - pattern: 'Anywhere\s+DENY IN\s+127\.0\.0\.0/8'
+    - pattern: 'Anywhere \(v6\) on lo\s+ALLOW IN\s+Anywhere \(v6\)'
+    - pattern: 'Anywhere \(v6\)\s+DENY IN\s+::1'
+Ensure_outbound_connections_are_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_firewall_rules_exist_for_all_open_ports:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#   3.5.3 Configure nftables
+#
+Ensure_iptables_are_flushed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'iptables -L | grep -E "ACCEPT|DROP"'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_a_table_exists:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'nft list tables'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+'
+Ensure_base_chains_exist:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "nft list ruleset | grep 'hook input'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'type filter hook input priority 0'
+  - command: "nft list ruleset | grep 'hook forward'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'type filter hook forward priority 0'
+  - command: "nft list ruleset | grep 'hook output'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'type filter hook output priority 0'
+Ensure_loopback_traffic_is_configured_1:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "nft list ruleset | awk '/hook input/,/}/' | grep 'iif \"lo\" accept'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'iif "lo" accept'
+  - command: "nft list ruleset | awk '/hook input/,/}/' | grep 'ip saddr'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ip saddr 127\.0\.0\.0/8 counter packets .*'
+  - command: "nft list ruleset | awk '/hook input/,/}/' | grep 'ip6 saddr'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ip6 saddr ::1 counter packets .*'
+Ensure_outbound_and_established_connections_are_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_default_deny_firewall_policy_1:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "nft list ruleset | grep 'hook input'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'policy drop'
+  - command: "nft list ruleset | grep 'hook forward'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'policy drop'
+  - command: "nft list ruleset | grep 'hook output'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'policy drop'
+Ensure_nftables_service_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled nftables'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_nftables_rules_are_permanent:
+  dependency:
+  script: 'manual' 
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#   3.5.4 Configure iptables\n   3.5.4.1 Configure IPv4 iptables
+#
+Ensure_default_deny_firewall_policy_2:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "iptables -L | grep 'Chain INPUT'"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'DROP'
+    - pattern: 'REJECT'
+  - command: "iptables -L | grep 'Chain FORWARD'"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'DROP'
+    - pattern: 'REJECT'
+  - command: "iptables -L | grep 'Chain OUTPUT'"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'DROP'
+    - pattern: 'REJECT'
+Ensure_loopback_traffic_is_configured_2:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'iptables -L INPUT -v -n'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ACCEPT\s+all\s+.*\s+lo\s+.*\s+0\.0\.0\.0/0\s+0\.0\.0\.0/0'
+    - pattern: 'DROP\s+all\s+.*\s+.*\s+.*\s+127\.0\.0\.0/8\s+0\.0\.0\.0/0'
+  - command: 'iptables -L OUTPUT -v -n'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'all\s+.*\s+.*\s+lo\s+0\.0\.0\.0/0\s+0\.0\.0\.0/0 '
+Ensure_outbound_and_established_connections_are_configured_1:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_firewall_rules_exist_for_all_open_ports_1:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#    3.5.4.2 Configure IPv6 ip6tables
+#
+Ensure_IPv6_default_deny_firewall_policy:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "ip6tables -L | grep 'Chain INPUT'"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'DROP'
+    - pattern: 'REJECT'
+  - command: "ip6tables -L | grep 'Chain FORWARD'"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'DROP'
+    - pattern: 'REJECT'
+  - command: "ip6tables -L | grep 'Chain OUTPUT'"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'DROP'
+    - pattern: 'REJECT'
+Ensure_IPv6_loopback_traffic_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'ip6tables -L INPUT -v -n'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ACCEPT\s+all\s+lo\s+.*\s+::/0\s+::/0'
+    - pattern: 'DROP\s+all\s+.*\s+.*\s+::1\s+::/0'
+  - command: 'ip6tables -L OUTPUT -v -n'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ACCEPT\s+all\s+.*\s+lo\s+::/0\s+::/0'
+Ensure_IPv6_outbound_and_established_connections_are_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_IPv6_firewall_rules_exist_for_all_open_ports:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_wireless_interfaces_are_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'nmcli radio all'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '\w+\s+disabled\s+\w+\s+disabled'
+Disable_IPv6:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep "^\s*linux" /boot/grub/grub.cfg | grep -v "ipv6.disable=1"'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+# 
+# 4 Logging and Auditing\n 4.1 Configure System Accounting (auditd)\n  4.1.1 Ensure auditing is enabled
+#
+Ensure_auditd_is_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s auditd audispd-plugins'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'is not installed'
+Ensure_auditd_service_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl --now enable auditd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_auditing_for_processes_that_start_prior_to_auditd_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep \"^\\s*linux\" /boot/grub/grub.cfg | grep -v \"audit=1\" | grep -v '/boot/memtest86+.bin'"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_audit_backlog_limit_is_sufficient:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#   4.1.2 Configure Data Retention
+#
+Ensure_audit_log_storage_size_is_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_audit_logs_are_not_automatically_deleted:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep max_log_file_action /etc/audit/auditd.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'max_log_file_action = keep_logs'
+Ensure_system_is_disabled_when_audit_logs_are_full:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep space_left_action /etc/audit/auditd.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'space_left_action = email'
+  - command: 'grep action_mail_acct /etc/audit/auditd.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'action_mail_acct = root'
+  - command: 'grep admin_space_left_action /etc/audit/auditd.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'admin_space_left_action = halt'
+Ensure_events_that_modify_date_and_time_information_are_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep time-change /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change'
+    - pattern: '-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time- change'
+    - pattern: '-a always,exit -F arch=b64 -S clock_settime -k time-change'
+    - pattern: '-a always,exit -F arch=b32 -S clock_settime -k time-change'
+    - pattern: '-w /etc/localtime -p wa -k time-change'
+  - command: 'auditctl -l | grep time-change'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S adjtimex,settimeofday -F key=time-change'
+    - pattern: '-a always,exit -F arch=b32 -S stime,settimeofday,adjtimex -F key=time-change'
+    - pattern: '-a always,exit -F arch=b64 -S clock_settime -F key=time-change'
+    - pattern: '-a always,exit -F arch=b32 -S clock_settime -F key=time-change'
+    - pattern: '-w /etc/localtime -p wa -k time-change'
+Ensure_events_that_modify_user/group_information_are_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /etc/group -p wa -k identity'
+    - pattern: '-w /etc/passwd -p wa -k identity'
+    - pattern: '-w /etc/gshadow -p wa -k identity'
+    - pattern: '-w /etc/shadow -p wa -k identity'
+    - pattern: '-w /etc/security/opasswd -p wa -k identity'
+  - command: 'auditctl -l | grep identity'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /etc/group -p wa -k identity'
+    - pattern: '-w /etc/passwd -p wa -k identity'
+    - pattern: '-w /etc/gshadow -p wa -k identity'
+    - pattern: '-w /etc/shadow -p wa -k identity'
+    - pattern: '-w /etc/security/opasswd -p wa -k identity'
+Ensure_events_that_modify_the_systems_network_environment_are_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep system-locale /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale'
+    - pattern: '-w /etc/issue -p wa -k system-locale'
+    - pattern: '-w /etc/issue.net -p wa -k system-locale'
+    - pattern: '-w /etc/hosts -p wa -k system-locale'
+    - pattern: '-w /etc/network -p wa -k system-locale'
+  - command: 'auditctl -l | grep system-locale'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale'
+    - pattern: '-w /etc/issue -p wa -k system-locale'
+    - pattern: '-w /etc/issue.net -p wa -k system-locale'
+    - pattern: '-w /etc/hosts -p wa -k system-locale'
+    - pattern: '-w /etc/network -p wa -k system-locale'
+Ensure_events_that_modify_the_systems_Mandatory_Access_Controls_are_collect:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep MAC-policy /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /etc/apparmor/ -p wa -k MAC-policy'
+    - pattern: '-w /etc/apparmor.d/ -p wa -k MAC-policy'
+  - command: 'auditctl -l | grep MAC-policy'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /etc/apparmor/ -p wa -k MAC-policy'
+    - pattern: '-w /etc/apparmor.d/ -p wa -k MAC-policy'
+Ensure_login_and_logout_events_are_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep logins /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /var/log/faillog -p wa -k logins'
+    - pattern: '-w /var/log/lastlog -p wa -k logins'
+    - pattern: '-w /var/log/tallylog -p wa -k logins'
+  - command: 'auditctl -l | grep logins'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /var/log/faillog -p wa -k logins'
+    - pattern: '-w /var/log/lastlog -p wa -k logins'
+    - pattern: '-w /var/log/tallylog -p wa -k logins'
+Ensure_session_initiation_information_is_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep -E '(session|logins)' /etc/audit/rules.d/*.rules"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /var/run/utmp -p wa -k session'
+    - pattern: '-w /var/log/wtmp -p wa -k logins'
+    - pattern: '-w /var/log/btmp -p wa -k logins'
+  - command: "auditctl -l | grep -E '(session|logins)'"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /var/run/utmp -p wa -k session'
+    - pattern: '-w /var/log/wtmp -p wa -k logins'
+    - pattern: '-w /var/log/btmp -p wa -k logins'
+Ensure_discretionary_access_control_permission_modification_events_are_coll:
+  dependency:
+  script: 
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep perm_mod /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod'
+    - pattern: '-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod'
+    - pattern: '-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295'
+    - pattern: '-k perm_mod'
+  - command: 'auditctl -l | grep auditctl -l | grep perm_mod'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod'
+    - pattern: '-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod'
+    - pattern: '-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295'
+    - pattern: '-k perm_mod'
+Ensure_unsuccessful_unauthorized_file_access_attempts_are_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep access /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access'
+    - pattern: '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access'   
+  - command: 'auditctl -l | grep access'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access'
+    - pattern: '-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access'
+Ensure_use_of_privileged_commands_is_collected:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_successful_file_system_mounts_are_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep mounts /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts'
+  - command: 'auditctl -l | grep mounts'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts'
+Ensure_file_deletion_events_by_users_are_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep delete /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete'
+  - command: 'auditctl -l | grep delete'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F auid!=4294967295 -k delete'
+Ensure_changes_to_system_administration_scope_(sudoers)_is_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep scope /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /etc/sudoers -p wa -k scope'
+    - pattern: '-w /etc/sudoers.d/ -p wa -k scope'
+  - command: 'auditctl -l | grep scope'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /etc/sudoers -p wa -k scope'
+    - pattern: '-w /etc/sudoers.d/ -p wa -k scope'
+Ensure_system_administrator_actions_(sudolog)_are_collected:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_kernel_module_loading_and_unloading_is_collected:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep modules /etc/audit/rules.d/*.rules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /sbin/insmod -p x -k modules'
+    - pattern: '-w /sbin/rmmod -p x -k modules'
+    - pattern: '-w /sbin/modprobe -p x -k modules'
+    - pattern: '-a always,exit -F arch=b64 -S init_module -S delete_module -k modules'
+  - command: 'auditctl -l | grep modules'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-w /sbin/insmod -p x -k modules'
+    - pattern: '-w /sbin/rmmod -p x -k modules'
+    - pattern: '-w /sbin/modprobe -p x -k modules'
+    - pattern: '-a always,exit -F arch=b64 -S init_module -S delete_module -k modules'
+Ensure_the_audit_configuration_is_immutable:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep "^\s*[^#]" /etc/audit/audit.rules | tail -1'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '-e 2'
+# 
+#  4.2 Configure Logging\n  4.2.1 Configure rsyslog
+#
+Ensure_rsyslog_is_installed:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'dpkg -s rsyslog | grep -i status'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'install ok installed'
+Ensure_rsyslog_Service_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled rsyslog'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_logging_is_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_rsyslog_default_file_permissions_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep ^\$FileCreateMode /etc/rsyslog.conf /etc/rsyslog.d/*.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'FileCreateMode 0[0-6][0-4]0'
+Ensure_rsyslog_is_configured_to_send_logs_to_a_remote_log_host:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: "grep -E \"^[^#](\\s*\\S+\\s*)\\s*action\\(\" /etc/rsyslog.conf /etc/rsyslog.d/*.conf | grep target"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'target\s*=.+'
+  - command: "grep -E \"^[^#]\\s*\\S+\\.\\*\\s+@\" /etc/rsyslog.conf /etc/rsyslog.d/*.conf"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'target\s*=.+'
+Ensure_remote_rsyslog_messages_are_only_accepted_on_designated_log_hosts.:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '$ModLoad imtcp' /etc/rsyslog.conf /etc/rsyslog.d/*.conf"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '\$ModLoad imtcp'
+  - command: "grep '$InputTCPServerRun' /etc/rsyslog.conf /etc/rsyslog.d/*.conf"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '\$InputTCPServerRun 514'
+# 
+#   4.2.2 Configure journald
+#
+Ensure_journald_is_configured_to_send_logs_to_rsyslog:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep -E -i "^\s*ForwardToSyslog" /etc/systemd/journald.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ForwardToSyslog=yes'
+Ensure_journald_is_configured_to_compress_large_log_files:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep -E -i "^\s*Compress" /etc/systemd/journald.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Compress=yes'
+Ensure_journald_is_configured_to_write_logfiles_to_persistent_disk:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep -E -i "^\s*Storage" /etc/systemd/journald.conf'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Storage=persistent'
+Ensure_permissions_on_all_logfiles_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'find /var/log -type f -ls'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '-----\s+'
+Ensure_logrotate_is_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+# 5 Access, Authentication and Authorization\n 5.1 Configure cron
+#
+Ensure_cron_daemon_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'systemctl is-enabled cron'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enabled'
+Ensure_permissions_on_/etc/crontab_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/crontab'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/cron.hourly_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/cron.hourly'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/cron.daily_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/cron.daily'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/cron.weekly_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/cron.weekly'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/cron.monthly_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/cron.monthly'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/cron.d_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/cron.d'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_at/cron_is_restricted_to_authorized_users:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/cron.deny'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'No such file or directory'
+  - command: 'stat /etc/at.deny'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'No such file or directory'
+  - command: 'stat /etc/cron.allow'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+  - command: 'stat /etc/at.allow'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+# 
+#  5.2 SSH Server Configuration
+#
+Ensure_permissions_on_/etc/ssh/sshd_config_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/ssh/sshd_config'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7]00/.*\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_SSH_private_host_key_files_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: "find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec stat {} \\; | grep Uid"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7][0-7][0-7]/.*\)\s*Uid:\s*\(\s*[0-9]+/\s*root\)\s*Gid:\s*\(\s*[1-9]+/\s*root\)'
+    - pattern: 'Access:\s*\(0[0-7][0-7][0-7]/.*\)\s*Uid:\s*\(\s*[1-9]+/\s*root\)\s*Gid:\s*\(\s*[0-9]+/\s*root\)'
+    - pattern: 'Access:\s*\(0[0-7][0-7][1-7]/.*\)\s*Uid:\s*\(\s*[0-9]+/\s*root\)\s*Gid:\s*\(\s*[0-9]+/\s*root\)'
+    - pattern: 'Access:\s*\(0[0-7][1-7][0-7]/.*\)\s*Uid:\s*\(\s*[0-9]+/\s*root\)\s*Gid:\s*\(\s*[0-9]+/\s*root\)'
+Ensure_permissions_on_SSH_public_host_key_files_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: "find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec stat {} \\; | grep Uid"
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-7][5-7][0-7]/.*\).*'
+    - pattern: 'Access:\s*\(0[0-7][0-7][5-7]/.*\).*'
+Ensure_SSH_Protocol_is_not_set_to_1:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "sshd -T | grep -Ei '^\\s*protocol\\s+(1|1\\s*,\\s*2|2\\s*,\\s*1)\\s*'"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_SSH_LogLevel_is_appropriate:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep loglevel'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'loglevel VERBOSE'
+    - pattern: 'loglevel INFO'
+Ensure_SSH_X11_forwarding_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep x11forwarding'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'x11forwarding no'
+Ensure_SSH_MaxAuthTries_is_set_to_4_or_less:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep maxauthtries'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'maxauthtries [1-4]$'
+Ensure_SSH_IgnoreRhosts_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep ignorerhosts'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ignorerhosts yes'
+Ensure_SSH_HostbasedAuthentication_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep hostbasedauthentication'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'hostbasedauthentication no'
+Ensure_SSH_root_login_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep permitrootlogin'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'permitrootlogin no'
+Ensure_SSH_PermitEmptyPasswords_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep permitemptypasswords'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'permitemptypasswords no'
+Ensure_SSH_PermitUserEnvironment_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep permituserenvironment'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'permituserenvironment no'
+Ensure_only_strong_Ciphers_are_used:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'sshd -T | grep ciphers'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: '3des-cbc'
+    - pattern: '3des-cbcaes128-cbc'
+    - pattern: '3des-cbcaes192-cbc'
+    - pattern: '3des-cbcaes256-cbc'
+    - pattern: '3des-cbcarcfour'
+    - pattern: '3des-cbcarcfour128'
+    - pattern: '3des-cbcarcfour256'
+    - pattern: '3des-cbcblowfish-cbc'
+    - pattern: '3des-cbccast128-cbc'
+    - pattern: '3des-cbcrijndael-cbc@lysator.liu.se'
+Ensure_only_strong_MAC_algorithms_are_used:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'sshd -T | grep -i "MACs"'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'hmac-md5'
+    - pattern: 'hmac-md5-96'
+    - pattern: 'hmac-ripemd160'
+    - pattern: 'hmac-sha1'
+    - pattern: 'hmac-sha1-96'
+    - pattern: 'umac-64@openssh.com'
+    - pattern: 'umac-128@openssh.com'
+    - pattern: 'hmac-md5-etm@openssh.com'
+    - pattern: 'hmac-md5-96-etm@openssh.com'
+    - pattern: 'hmac-ripemd160-etm@openssh.com'
+    - pattern: 'hmac-sha1-etm@openssh.com'
+    - pattern: 'hmac-sha1-96-etm@openssh.com'
+    - pattern: 'umac-64-etm@openssh.com'
+    - pattern: 'umac-128-etm@openssh.com'
+Ensure_only_strong_Key_Exchange_algorithms_are_used:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'sshd -T | grep kexalgorithms'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'diffie-hellman-group1-sha1' 
+    - pattern: 'diffie-hellman-group14-sha1' 
+    - pattern: 'diffie-hellman-group-exchange-sha1'
+Ensure_SSH_Idle_Timeout_Interval_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep clientaliveinterval'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'clientaliveinterval \d\d$'
+    - pattern: 'clientaliveinterval 300$'
+  - command: 'sshd -T | grep clientalivecountmax'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'clientalivecountmax [0-3]$'
+Ensure_SSH_LoginGraceTime_is_set_to_one_minute_or_less:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep logingracetime'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'logingracetime \d$'
+    - pattern: 'logingracetime [1-5]\d$'
+    - pattern: 'logingracetime 60$'
+Ensure_SSH_access_is_limited:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: 'sshd -T | grep allowusers'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'allowusers .+'
+  - command: 'sshd -T | grep allowgroups'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'allowgroups .+'
+  - command: 'sshd -T | grep denyusers'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'denyusers .+'
+  - command: 'sshd -T | grep denygroups'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'denygroups'
+Ensure_SSH_warning_banner_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep banner'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'banner /etc/issue.net'
+Ensure_SSH_PAM_is_enabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep -i usepam'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'usepam yes'
+Ensure_SSH_AllowTcpForwarding_is_disabled:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep -i allowtcpforwarding'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'allowtcpforwarding yes'
+Ensure_SSH_MaxStartups_is_configured:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: '' 
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_SSH_MaxSessions_is_set_to_4_or_less:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sshd -T | grep -i maxsessions'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'maxsessions [1234]'
+# 
+#  5.3 Configure PAM
+#
+Ensure_password_creation_requirements_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '^\\s*minlen\\s*' /etc/security/pwquality.conf"
+    logical_exp_ptrn: 'res[0] and (not(res[1]) or not(res[2]))'
+    patterns:
+    - pattern: 'minlen=\d+'
+    - pattern: 'minlen=\d$'
+    - pattern: 'minlen=1[0-3]$'
+Ensure_lockout_for_failed_password_attempts_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep "pam_tally2" /etc/pam.d/common-auth'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'auth\s+required\s+pam_tally2.so\s+onerr=fail\s+audit\s+silent\s+deny=[1-5]\s+unlock_time=\d\d?\d?'
+  - command: 'grep -E "pam_(tally2|deny)\.so" /etc/pam.d/common-account'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'account\s+requisite\s+pam_deny\.so'
+    - pattern: 'account\s+required\s+pam_tally2\.so'
+Ensure_password_reuse_is_limited:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep -E '^password\\s+required\\s+pam_pwhistory\\.so' /etc/pam.d/common-password"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'remember=[0-4]$'
+Ensure_password_hashing_algorithm_is_SHA-512:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep -E '^\\s*password\\s+(\\S+\\s+)+pam_unix\\.so\\s+(\\S+\\s+)*sha512\\s*(\\S+\\s*)*(\\s+#.*)?$' /etc/pam.d/common-password"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'sha512'
+# 
+#  5.4 User Accounts and Environment\n  5.4.1 Set Shadow Password Suite Parameters
+#
+Ensure_password_expiration_is_365_days_or_less:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep PASS_MAX_DAYS /etc/login.defs'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'PASS_MAX_DAYS \d$'
+    - pattern: 'PASS_MAX_DAYS \d\d$'
+    - pattern: 'PASS_MAX_DAYS 3[0-5]\d$'
+    - pattern: 'PASS_MAX_DAYS 36[0-5]$'
+Ensure_minimum_days_between_password_changes_is_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands: 
+  - command: 'grep PASS_MIN_DAYS /etc/login.defs'
+    logical_exp_ptrn: 'res[0] and not(res[1])'
+    patterns:
+    - pattern: 'PASS_MIN_DAYS'
+    - pattern: 'PASS_MIN_DAYS 0'
+  - command: 'grep -E ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1,4 | grep -v root'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '\w+:0'
+Ensure_password_expiration_warning_days_is_7_or_more:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep PASS_WARN_AGE /etc/login.defs'
+    logical_exp_ptrn: 'res[0] and not(res[1])'
+    patterns:
+    - pattern: 'PASS_WARN_AGE'
+    - pattern: 'PASS_WARN_AGE [0-6]$'
+  - command: 'grep -E ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1,6 | grep -v root'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '\w+:[0-6]'
+Ensure_inactive_password_lock_is_30_days_or_less:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'useradd -D | grep INACTIVE'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'INACTIVE=\d$'
+    - pattern: 'INACTIVE=[12]\d$'
+    - pattern: 'INACTIVE=30$'
+  - command: 'grep -E ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1,7 | grep -v root'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: '\w+:\d$'
+    - pattern: '\w+:[12]\d$'
+    - pattern: '\w+:30$'
+Ensure_all_users_last_password_change_date_is_in_the_past:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "awk -F: '{print $1}' /etc/shadow | while read -r usr; do [[ $(date --date=\"$(chage --list \"$usr\" | grep 'Last password change' | cut -d: -f2)\" +%s) > $(date +%s) ]] && echo \"$usr last password change was: $(chage --list \"$usr\" | grep '^Last password change' | cut -d: -f2)\"; done"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_system_accounts_are_secured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "awk -F: '($1!=\"root\" && $1!=\"sync\" && $1!=\"shutdown\" && $1!=\"halt\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"' && $7!=\"'\"$(which nologin)\"'\" && $7!=\"/bin/false\") {print}' /etc/passwd"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+  - command: "awk -F: '($1!=\"root\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"') {print $1}' /etc/passwd | xargs -I '{}' passwd -S '{}' | awk '($2!=\"L\" && $2!=\"LK\") {print $1}'"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_default_group_for_the_root_account_is_GID_0:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep "^root:" /etc/passwd | cut -f4 -d:'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '^0$'
+Ensure_default_user_umask_is_027_or_more_restrictive:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep "umask" /etc/bash.bashrc'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'umask 027$'
+  - command: 'grep "umask" /etc/profile /etc/profile.d/*.sh'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'umask 027$'
+Ensure_default_user_shell_timeout_is_900_seconds_or_less:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'grep -E -i "^\s*(\S+\s+)*TMOUT=(900|[1-8][0-9][0-9]|[1-9][0-9]|[1-9])\s*(\S+\s*)*(\s+#.*)?$" /etc/bash.bashrc'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'TMOUT'
+  - command: 'grep -E -i "^\s*(\S+\s+)*TMOUT=(900|[1-8][0-9][0-9]|[1-9][0-9]|[1-9])\s*(\S+\s*)*(\s+#.*)?$" /etc/profile /etc/profile.d/*.sh'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'TMOUT'
+Ensure_root_login_is_restricted_to_system_console:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_access_to_the_su_command_is_restricted:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+# 6 System Maintenance\n 6.1 System File Permissions
+#
+Audit_system_file_permissions:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_permissions_on_/etc/passwd_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/passwd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/gshadow-_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/gshadow-'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-6][0-4]0/.+\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*\d+/\s*shadow\)'
+Ensure_permissions_on_/etc/shadow_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/shadow'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-6][0-4]0/.+\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*\d+/\s*shadow\)'
+Ensure_permissions_on_/etc/group_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/group'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0644/-rw-r--r--\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/passwd-_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/passwd-'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-6]00/.+\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/shadow-_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/shadow-'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-6][0-4]0/.+\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*\d+/\s*shadow\)'
+Ensure_permissions_on_/etc/group-_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/group-'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-6][0-4][0-4]/.+\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*0/\s*root\)'
+Ensure_permissions_on_/etc/gshadow_are_configured:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'stat /etc/gshadow'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Access:\s*\(0[0-6][0-4]0/.+\)\s*Uid:\s*\(\s*0/\s*root\)\s*Gid:\s*\(\s*\d+/\s*shadow\)'
+Ensure_no_world_writable_files_exist:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type f -perm -0002"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_no_unowned_files_or_directories_exist:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -nouser"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_no_ungrouped_files_or_directories_exist:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -nogroup"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Audit_SUID_executables:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Audit_SGID_executables:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+# 
+#  6.2 User and Group Settings
+#
+Ensure_password_fields_are_not_empty:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "awk -F: '($2 == \"\" ) { print $1 \" does not have a password \"}' /etc/shadow"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_no_legacy_+_entries_exist_in_/etc/passwd:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '^\\+:' /etc/passwd"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_all_users_home_directories_exist:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_legacy_+_entries_exist_in_/etc/shadow:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '^\\+:' /etc/shadow"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_no_legacy_+_entries_exist_in_/etc/group:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "grep '^\\+:' /etc/group"
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '.+'
+Ensure_root_is_the_only_UID_0_account:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: "awk -F: '($3 == 0) { print $1 }' /etc/passwd"
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '^root$'
+Ensure_root_PATH_Integrity:
+  dependency: 
+  script: 
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'ls -a'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_users_home_directories_permissions_are_750_or_more_restrictive:
+  dependency:
+  script: 
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_users_own_their_home_directories:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_users_dot_files_are_not_group_or_world_writable:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_users_have_.forward_files:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_users_have_.netrc_files:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_users_.netrc_Files_are_not_group_or_world_accessible:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_users_have_.rhosts_files:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_all_groups_in_/etc/passwd_exist_in_/etc/group:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_duplicate_UIDs_exist:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_duplicate_GIDs_exist:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_duplicate_user_names_exist:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_no_duplicate_group_names_exist:
+  dependency: 
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''
+Ensure_shadow_group_is_empty:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command: ''
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: ''

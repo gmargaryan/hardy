@@ -1,0 +1,11 @@
+hosts:
+- ip_address: '3.122.105.27'
+  status: 'yes'
+  device_type: 'linux'
+  port: '22'
+  software_version:
+  benchmarks:
+#    check_list: 'test.yml'
+    check_list: 'Ubuntu_Linux_18.04_LTS_Benchmark_v2.0.1-check-list.yml'
+    check_output: 'Ubuntu_Linux_18.04_LTS_Benchmark_v2.0.1-check-output.yml'
+    scripts: 'Ubuntu_Linux_Benchmark_scripts.py'

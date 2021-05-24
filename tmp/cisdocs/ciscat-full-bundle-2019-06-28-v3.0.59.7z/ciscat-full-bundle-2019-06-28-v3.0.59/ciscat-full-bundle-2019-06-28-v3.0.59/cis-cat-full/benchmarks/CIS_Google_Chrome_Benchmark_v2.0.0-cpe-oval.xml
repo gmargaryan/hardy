@@ -1,0 +1,68 @@
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:win="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/version5.11/ovaldefinition/complete/windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/version5.11/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/version5.11/ovaldefinition/complete/oval-common-schema.xsd">
+	<generator>
+		<oval:product_name>Center for Internet Security</oval:product_name>
+		<oval:schema_version>5.11</oval:schema_version>
+		<oval:timestamp>2018-08-01T16:35:24-04:00</oval:timestamp>
+	</generator>
+
+	<definitions>
+		<definition class="inventory" id="oval:org.cisecurity.benchmarks:def:11914" version="20">
+			<metadata>
+				<title>Google Chrome is installed</title>
+				<affected family="windows">
+					<platform>Microsoft Windows Server 2003</platform>
+					<platform>Microsoft Windows Server 2008</platform>
+					<platform>Microsoft Windows Server 2008 R2</platform>
+					<platform>Microsoft Windows Server 2012</platform>
+					<platform>Microsoft Windows Server 2012 R2</platform>
+					<platform>Microsoft Windows Server 2016</platform>
+					<platform>Microsoft Windows XP</platform>
+					<platform>Microsoft Windows Vista</platform>
+					<platform>Microsoft Windows 7</platform>
+					<platform>Microsoft Windows 8</platform>
+					<platform>Microsoft Windows 8.1</platform>
+					<platform>Microsoft Windows 10</platform>
+					<product>Google Chrome</product>
+				</affected>
+				<reference ref_id="cpe:/a:google:chrome" source="CPE"/>
+				<description>Google Chrome is installed</description>
+			</metadata>
+			<criteria operator="OR">
+				<criterion comment="Chrome 32 bit check" test_ref="oval:org.cisecurity.benchmarks:tst:7777777"/>
+				<criterion comment="Chrome 64 bit check" test_ref="oval:org.cisecurity.benchmarks:tst:7777778"/>
+				<criterion comment="User Install Check" test_ref="oval:org.cisecurity.benchmarks:tst:7777779"/>
+			</criteria>
+		</definition>
+	</definitions>
+
+	<tests>
+		<registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="at least one" check_existence="at_least_one_exists" comment="Testing Google Chrome (x86) on x64 platform" id="oval:org.cisecurity.benchmarks:tst:7777777" version="1">
+			<object object_ref="oval:org.cisecurity.benchmarks:obj:8888887"/>
+		</registry_test>
+		<registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="at least one" check_existence="at_least_one_exists" comment="Testing for Google Chrome" id="oval:org.cisecurity.benchmarks:tst:7777778" version="1">
+			<object object_ref="oval:org.cisecurity.benchmarks:obj:8888888"/>
+		</registry_test>
+		<registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="at least one" check_existence="at_least_one_exists" comment="This is to test for user installs" id="oval:org.cisecurity.benchmarks:tst:7777779" version="1">
+			<object object_ref="oval:org.cisecurity.benchmarks:obj:8888889"/>
+		</registry_test>
+	</tests>
+
+	<objects>
+		<registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="This registry key identifies the path of Google Chrome (x86) on x64 platform" id="oval:org.cisecurity.benchmarks:obj:8888887" version="1">
+			<behaviors windows_view="32_bit"/>
+			<hive>HKEY_LOCAL_MACHINE</hive>
+			<key>SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe</key>
+			<name>Path</name>
+		</registry_object>
+		<registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="This registry key identifies the path of Google Chrome" id="oval:org.cisecurity.benchmarks:obj:8888888" version="1">
+			<hive>HKEY_LOCAL_MACHINE</hive>
+			<key>SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe</key>
+			<name>Path</name>
+		</registry_object>
+		<registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="This registry key identifies the path for user installs" id="oval:org.cisecurity.benchmarks:obj:8888889" version="1">
+			<hive>HKEY_CURRENT_USER</hive>
+			<key>Software\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome</key>
+			<name xsi:nil="true"/>
+		</registry_object>
+	</objects>
+</oval_definitions>

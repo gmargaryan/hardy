@@ -1,0 +1,1581 @@
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:win="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 https://github.com/CISecurity/OVALRepo/raw/master/oval_schemas/5.11.2/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 https://github.com/CISecurity/OVALRepo/raw/master/oval_schemas/5.11.2/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows https://github.com/CISecurity/OVALRepo/raw/master/oval_schemas/5.11.2/windows-definitions-schema.xsd">
+<generator>
+	<oval:product_name>Center for Internet Security</oval:product_name>
+	<oval:schema_version>5.11.2</oval:schema_version>
+	<oval:timestamp>2019-05-17T13:37:39+00:00</oval:timestamp>
+</generator>
+<definitions>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36941600" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable curtaining of remote access hosts' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.1.1_L1_Ensure_Enable_curtaining_of_remote_access_hosts_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable curtaining of remote access hosts' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36941600"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36945800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Allow gnubby authentication for remote access hosts' is set to 'Disabled'.</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.1.2_L1_Ensure_Allow_gnubby_authentication_for_remote_access_hosts_is_set_to_Disabled." ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Allow gnubby authentication for remote access hosts' is set to 'Disabled'.</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36945800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36965000" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Allow remote users to interact with elevated windows in remote assistance sessions' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.1.3_L1_Ensure_Allow_remote_users_to_interact_with_elevated_windows_in_remote_assistance_sessions_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Allow remote users to interact with elevated windows in remote assistance sessions' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36965000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979400" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Continue running background apps when Google Chrome is closed' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.2_L1_Ensure_Continue_running_background_apps_when_Google_Chrome_is_closed_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Continue running background apps when Google Chrome is closed' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979400"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981500" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Ask where to save each file before downloading' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.3_L1_Ensure_Ask_where_to_save_each_file_before_downloading_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Ask where to save each file before downloading' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981500"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981900" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Disable saving browser history' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.4_L1_Ensure_Disable_saving_browser_history_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Disable saving browser history' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981900"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982000" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable HTTP/0.9 support on non-default ports' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.5_L1_Ensure_Enable_HTTP0.9_support_on_non-default_ports_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable HTTP/0.9 support on non-default ports' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982300" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable component updates in Google Chrome' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6_L1_Ensure_Enable_component_updates_in_Google_Chrome_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable component updates in Google Chrome' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982300"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982400" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable deprecated web platform features for a limited time' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.7_L1_Ensure_Enable_deprecated_web_platform_features_for_a_limited_time_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable deprecated web platform features for a limited time' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982400"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982900" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable third party software injection blocking' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.8_L1_Ensure_Enable_third_party_software_injection_blocking_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable third party software injection blocking' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982900"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983000" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Extend Flash content setting to all content' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.9_L1_Ensure_Extend_Flash_content_setting_to_all_content_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Extend Flash content setting to all content' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983300" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Suppress the unsupported OS warning' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.10_L1_Ensure_Suppress_the_unsupported_OS_warning_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Suppress the unsupported OS warning' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983300"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983400" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Whether online OCSP/CRL checks are performed' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.11_L1_Ensure_Whether_online_OCSPCRL_checks_are_performed_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Whether online OCSP/CRL checks are performed' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983400"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983600" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Allow WebDriver to Override Incompatible Policies' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.12_L1_Ensure_Allow_WebDriver_to_Override_Incompatible_Policies_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Allow WebDriver to Override Incompatible Policies' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983600"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Control SafeSites adult content filtering' is set to 'Enabled' with value 'Do not filter sites for adult content' specified</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.13_L1_Ensure_Control_SafeSites_adult_content_filtering_is_set_to_Enabled_with_value_Do_not_filter_sites_for_adult_content_specified" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Control SafeSites adult content filtering' is set to 'Enabled' with value 'Do not filter sites for adult content' specified</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40224800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Origins or hostname patterns for which restrictions on insecure origins should not apply' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.14_L1_Ensure_Origins_or_hostname_patterns_for_which_restrictions_on_insecure_origins_should_not_apply_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Origins or hostname patterns for which restrictions on insecure origins should not apply' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40224800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40225800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Disable Certificate Transparency enforcement for a list of Legacy Certificate Authorities' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.15_L1_Ensure_Disable_Certificate_Transparency_enforcement_for_a_list_of_Legacy_Certificate_Authorities_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Disable Certificate Transparency enforcement for a list of Legacy Certificate Authorities' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40225800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40226000" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Disable Certificate Transparency enforcement for a list of URLs' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.16_L1_Ensure_Disable_Certificate_Transparency_enforcement_for_a_list_of_URLs_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Disable Certificate Transparency enforcement for a list of URLs' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40226000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40226200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.17_L1_Ensure_Disable_Certificate_Transparency_enforcement_for_a_list_of_subjectPublicKeyInfo_hashes_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40226200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36974700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Default Flash Setting' is set to 'Enabled' (Click to Play)</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.1_L1_Ensure_Default_Flash_Setting_is_set_to_Enabled_Click_to_Play" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Default Flash Setting' is set to 'Enabled' (Click to Play)</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36974700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36978000" version="1">
+		<metadata>
+			<title>(L2) Ensure 'Default notification setting' is set to 'Enabled' with 'Do not allow any site to show desktop notifications'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.2_L2_Ensure_Default_notification_setting_is_set_to_Enabled_with_Do_not_allow_any_site_to_show_desktop_notifications" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L2) Ensure 'Default notification setting' is set to 'Enabled' with 'Do not allow any site to show desktop notifications'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36978100" version="1">
+		<metadata>
+			<title>(L2) Ensure 'Control use of the Web Bluetooth API' is set to 'Enabled' with 'Do not allow any site to request access to Bluetooth devices via the Web Bluetooth API'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.3_L2_Ensure_Control_use_of_the_Web_Bluetooth_API_is_set_to_Enabled_with_Do_not_allow_any_site_to_request_access_to_Bluetooth_devices_via_the_Web_Bluetooth_API" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L2) Ensure 'Control use of the Web Bluetooth API' is set to 'Enabled' with 'Do not allow any site to request access to Bluetooth devices via the Web Bluetooth API'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36978200" version="1">
+		<metadata>
+			<title>(L2) Ensure 'Control use of the WebUSB API' is set to 'Enabled' with 'Do not allow any site to request access to USB devices via the WebUSB API'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.4_L2_Ensure_Control_use_of_the_WebUSB_API_is_set_to_Enabled_with_Do_not_allow_any_site_to_request_access_to_USB_devices_via_the_WebUSB_API" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L2) Ensure 'Control use of the WebUSB API' is set to 'Enabled' with 'Do not allow any site to request access to USB devices via the WebUSB API'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36978300" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Configure extension installation blacklist' is set to 'Enabled' ("*" for all extensions)</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.5_L1_Ensure_Configure_extension_installation_blacklist_is_set_to_Enabled_*_for_all_extensions" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Configure extension installation blacklist' is set to 'Enabled' ("*" for all extensions)</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978300"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40457500" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.6_L1_Ensure_Configure_allowed_appextension_types_is_set_to_Enabled_with_the_values_extension,_hosted_app,_platform_app,_theme_speciﬁed" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457500"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40457600" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.6_L1_Ensure_Configure_allowed_appextension_types_is_set_to_Enabled_with_the_values_extension,_hosted_app,_platform_app,_theme_speciﬁed" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457600"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40457700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.6_L1_Ensure_Configure_allowed_appextension_types_is_set_to_Enabled_with_the_values_extension,_hosted_app,_platform_app,_theme_speciﬁed" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:40457800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.6_L1_Ensure_Configure_allowed_appextension_types_is_set_to_Enabled_with_the_values_extension,_hosted_app,_platform_app,_theme_speciﬁed" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Configure allowed app/extension types' is set to 'Enabled' with the values 'extension', 'hosted_app', 'platform_app', 'theme' speciﬁed</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36978700" version="1">
+		<metadata>
+			<title>(L2) Ensure 'Configure native messaging blacklist' is set to 'Enabled' ("*" for all messaging applications)</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.7_L2_Ensure_Configure_native_messaging_blacklist_is_set_to_Enabled_*_for_all_messaging_applications" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L2) Ensure 'Configure native messaging blacklist' is set to 'Enabled' ("*" for all messaging applications)</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:42239100" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable saving passwords to the password manager' is Configured</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.8_L1_Ensure_Enable_saving_passwords_to_the_password_manager_is_Configured" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable saving passwords to the password manager' is Configured</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:42239200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable saving passwords to the password manager' is Configured</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.8_L1_Ensure_Enable_saving_passwords_to_the_password_manager_is_Configured" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable saving passwords to the password manager' is Configured</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979100" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Supported authentication schemes' is set to 'Enabled' (ntlm, negotiate)</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.9_L1_Ensure_Supported_authentication_schemes_is_set_to_Enabled_ntlm,_negotiate" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Supported authentication schemes' is set to 'Enabled' (ntlm, negotiate)</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:42238700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Choose how to specify proxy server settings' is not set to 'Enabled' with 'Auto detect proxy settings'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.10_L1_Ensure_Choose_how_to_specify_proxy_server_settings_is_not_set_to_Enabled_with_Auto_detect_proxy_settings" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Choose how to specify proxy server settings' is not set to 'Enabled' with 'Auto detect proxy settings'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42238700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979600" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Allow running plugins that are outdated' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.11_L1_Ensure_Allow_running_plugins_that_are_outdated_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Allow running plugins that are outdated' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979600"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable Google Cloud Print Proxy' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.12_L1_Ensure_Enable_Google_Cloud_Print_Proxy_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable Google Cloud Print Proxy' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36980100" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable Site Isolation for every site' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.13_L1_Ensure_Enable_Site_Isolation_for_every_site_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable Site Isolation for every site' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36980100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981300" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Allow download restrictions' is set to 'Enabled' with 'Block dangerous downloads' specified.</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.14_L1_Ensure_Allow_download_restrictions_is_set_to_Enabled_with_Block_dangerous_downloads_specified." ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Allow download restrictions' is set to 'Enabled' with 'Block dangerous downloads' specified.</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981300"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Disable proceeding from the Safe Browsing warning page' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.15_L1_Ensure_Disable_proceeding_from_the_Safe_Browsing_warning_page_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Disable proceeding from the Safe Browsing warning page' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983100" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Notify a user that a browser relaunch or device restart is recommended or required' is set to 'Enabled' with 'Show a recurring prompt to the user indication that a relaunch is required' specified</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.16_L1_Ensure_Notify_a_user_that_a_browser_relaunch_or_device_restart_is_recommended_or_required_is_set_to_Enabled_with_Show_a_recurring_prompt_to_the_user_indication_that_a_relaunch_is_required_specified" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Notify a user that a browser relaunch or device restart is recommended or required' is set to 'Enabled' with 'Show a recurring prompt to the user indication that a relaunch is required' specified</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Set the time period for update notifications' is set to 'Enabled' with '86400000' (1 day) specified</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.17_L1_Ensure_Set_the_time_period_for_update_notifications_is_set_to_Enabled_with_86400000_1_day_specified" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Set the time period for update notifications' is set to 'Enabled' with '86400000' (1 day) specified</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983500" version="1">
+		<metadata>
+			<title>(L2) Ensure 'Whether online OCSP/CRL checks are required for local trust anchors' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.18_L2_Ensure_Whether_online_OCSPCRL_checks_are_required_for_local_trust_anchors_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L2) Ensure 'Whether online OCSP/CRL checks are required for local trust anchors' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983500"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:41480100" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable Chrome Cleanup on Windows' is Configured</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.19_L1_Ensure_Enable_Chrome_Cleanup_on_Windows_is_Configured" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable Chrome Cleanup on Windows' is Configured</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41480100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:42239000" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable Chrome Cleanup on Windows' is Configured</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.19_L1_Ensure_Enable_Chrome_Cleanup_on_Windows_is_Configured" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable Chrome Cleanup on Windows' is Configured</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:41480800" version="1">
+		<metadata>
+			<title>(L2) Ensure 'Use built-in DNS client' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.20_L2_Ensure_Use_built-in_DNS_client_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L2) Ensure 'Use built-in DNS client' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41480800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:42238800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Update policy override' is set to 'Enabled' with 'Always allow updates (recommended)' or 'Automatic silent updates' specified</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.21_L1_Ensure_Update_policy_override_is_set_to_Enabled_with_Always_allow_updates_recommended_or_Automatic_silent_updates_specified" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Update policy override' is set to 'Enabled' with 'Always allow updates (recommended)' or 'Automatic silent updates' specified</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42238800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36974100" version="1">
+		<metadata>
+			<title>(L2) Ensure 'Default cookies setting' is set to 'Enabled' (Keep cookies for the duration of the session)</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.1_L2_Ensure_Default_cookies_setting_is_set_to_Enabled_Keep_cookies_for_the_duration_of_the_session" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L2) Ensure 'Default cookies setting' is set to 'Enabled' (Keep cookies for the duration of the session)</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36974100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36977600" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Default geolocation setting' is set to 'Enabled' with 'Do not allow any site to track the users' physical location'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.2_L1_Ensure_Default_geolocation_setting_is_set_to_Enabled_with_Do_not_allow_any_site_to_track_the_users_physical_location" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Default geolocation setting' is set to 'Enabled' with 'Do not allow any site to track the users' physical location'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36977600"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:41480900" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable Google Cast' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.3_L1_Ensure_Enable_Google_Cast_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable Google Cast' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41480900"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979500" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Block third party cookies' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.4_L1_Ensure_Block_third_party_cookies_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Block third party cookies' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979500"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36980000" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable reporting of usage and crash-related data' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.5_L1_Ensure_Enable_reporting_of_usage_and_crash-related_data_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable reporting of usage and crash-related data' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36980000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981600" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Control how Chrome Cleanup reports data to Google' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.6_L1_Ensure_Control_how_Chrome_Cleanup_reports_data_to_Google_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Control how Chrome Cleanup reports data to Google' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981600"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Browser sign in settings' is set to 'Enabled' with 'Disabled browser sign-in' specified</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.7_L1_Ensure_Browser_sign_in_settings_is_set_to_Enabled_with_Disabled_browser_sign-in_specified" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Browser sign in settings' is set to 'Enabled' with 'Disabled browser sign-in' specified</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable Translate' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.8_L1_Ensure_Enable_Translate_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable Translate' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982500" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable network prediction' is set to 'Enabled' with 'Do not predict actions on any network connection' selected</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.9_L1_Ensure_Enable_network_prediction_is_set_to_Enabled_with_Do_not_predict_actions_on_any_network_connection_selected" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable network prediction' is set to 'Enabled' with 'Do not predict actions on any network connection' selected</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982500"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982600" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable search suggestions' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.10_L1_Ensure_Enable_search_suggestions_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable search suggestions' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982600"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable or disable spell checking web service' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.11_L1_Ensure_Enable_or_disable_spell_checking_web_service_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable or disable spell checking web service' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable alternate error pages' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.12_L1_Ensure_Enable_alternate_error_pages_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable alternate error pages' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36983900" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Disable synchronization of data with Google' is set to 'Enabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.13_L1_Ensure_Disable_synchronization_of_data_with_Google_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Disable synchronization of data with Google' is set to 'Enabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983900"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36984000" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable Safe Browsing for trusted sources' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.14_L1_Ensure_Enable_Safe_Browsing_for_trusted_sources_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable Safe Browsing for trusted sources' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36984000"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:41595200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable URL-keyed anonymized data collection' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.15_L1_Ensure_Enable_URL-keyed_anonymized_data_collection_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable URL-keyed anonymized data collection' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41595200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:41595300" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable deleting browser and download history' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.16_L1_Ensure_Enable_deleting_browser_and_download_history_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable deleting browser and download history' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41595300"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36935700" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable firewall traversal from remote access host' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_4.1.1_L1_Ensure_Enable_firewall_traversal_from_remote_access_host_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable firewall traversal from remote access host' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36935700"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36938200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable or disable PIN-less authentication for remote access hosts' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_4.1.2_L1_Ensure_Enable_or_disable_PIN-less_authentication_for_remote_access_hosts_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable or disable PIN-less authentication for remote access hosts' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36938200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36957200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable the use of relay servers by the remote access host' is set to 'Disabled'.</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_4.1.3_L1_Ensure_Enable_the_use_of_relay_servers_by_the_remote_access_host_is_set_to_Disabled." ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable the use of relay servers by the remote access host' is set to 'Disabled'.</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36957200"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36969500" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Configure the required domain names for remote access clients' is set to 'Enabled'  with a domain defined</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_4.1.4_L1_Ensure_Configure_the_required_domain_names_for_remote_access_clients_is_set_to_Enabled__with_a_domain_defined" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Configure the required domain names for remote access clients' is set to 'Enabled'  with a domain defined</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36969500"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979800" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable submission of documents to Google Cloud print' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_5.1_L1_Ensure_Enable_submission_of_documents_to_Google_Cloud_print_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable submission of documents to Google Cloud print' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979800"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979900" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Import saved passwords from default browser on first run' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_5.2_L1_Ensure_Import_saved_passwords_from_default_browser_on_first_run_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Import saved passwords from default browser on first run' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979900"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981100" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable AutoFill for credit cards' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_5.3_L1_Ensure_Enable_AutoFill_for_credit_cards_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable AutoFill for credit cards' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981100"/>
+		</criteria>
+	</definition>
+	<definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36981200" version="1">
+		<metadata>
+			<title>(L1) Ensure 'Enable AutoFill for addresses' is set to 'Disabled'</title>
+	 		<reference ref_id="xccdf_org.cisecurity.benchmarks_rule_5.4_L1_Ensure_Enable_AutoFill_for_addresses_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+	 		<description>(L1) Ensure 'Enable AutoFill for addresses' is set to 'Disabled'</description>
+	 	</metadata>
+		<criteria negate="false" operator="AND">
+			<criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981200"/>
+		</criteria>
+	</definition>
+
+</definitions>
+<tests>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RemoteAccessHostRequireCurtain' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36941600" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36941600"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36941600"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RemoteAccessHostAllowGnubbyAuth' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36945800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36945800"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36945800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RemoteAccessHostAllowUiAccessForRemoteAssistance' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36965000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36965000"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36965000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'BackgroundModeEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979400" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979400"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979400"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'PromptForDownloadLocation' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981500" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981500"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981500"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SavingBrowserHistoryDisabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981900" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981900"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981900"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'Http09OnNonDefaultPortsEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982000"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'ComponentUpdatesEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982300" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982300"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982300"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="none_exist" comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982400" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982400"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'ThirdPartyBlockingEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982900" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982900"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982900"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RunAllFlashInAllowMode' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983000"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SuppressUnsupportedOSWarning' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983300" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983300"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983300"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'EnableOnlineRevocationChecks' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983400" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983400"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983400"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'WebDriverOverridesIncompatiblePolicies' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983600" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983600"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983600"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SafeSitesFilterBehavior' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="none_exist" comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40224800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40224800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="none_exist" comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40225800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40225800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="none_exist" comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40226000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40226000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="none_exist" comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40226200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40226200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DefaultPluginsSetting' is 'Windows: Registry Value' to '3'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36974700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36974700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36974700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DefaultNotificationsSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978000"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DefaultWebBluetoothGuardSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DefaultWebUsbGuardSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'ExtensionInstallBlacklist' is 'Windows: Registry Value' to '*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978300" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978300"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978300"/>
+			</win:registry_test>
+	<win:registry_test check="at least one" check_existence="at_least_one_exists" comment="Ensure '\d+' is 'Windows: Registry Value' to 'extension'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457500" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457500"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457500"/>
+			</win:registry_test>
+	<win:registry_test check="at least one" check_existence="at_least_one_exists" comment="Ensure '\d+' is 'Windows: Registry Value' to 'hosted_app'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457600" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457600"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457600"/>
+			</win:registry_test>
+	<win:registry_test check="at least one" check_existence="at_least_one_exists" comment="Ensure '\d+' is 'Windows: Registry Value' to 'platform_app'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457700"/>
+			</win:registry_test>
+	<win:registry_test check="at least one" check_existence="at_least_one_exists" comment="Ensure '\d+' is 'Windows: Registry Value' to 'theme'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:40457800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457800"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure '1' is 'Windows: Registry Value' to '*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36978700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'AuthSchemes' is 'Windows: Registry Value' to 'ntlm, negotiate'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'ProxyMode' is 'Windows: Registry Value' to 'auto_detect'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42238700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42238700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42238700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'AllowOutdatedPlugins' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979600" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979600"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979600"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'CloudPrintProxyEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SitePerProcess' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36980100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36980100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36980100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DownloadRestrictions' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981300" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981300"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981300"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DisableSafeBrowsingProceedAnyway' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981800"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RelaunchNotification' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RelaunchNotificationPeriod' is 'Windows: Registry Value' to '86400000'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RequireOnlineRevocationChecksForLocalAnchors' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983500" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983500"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983500"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'ChromeCleanupEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41480100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41480100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41480100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'ChromeCleanupEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239000"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'BuiltInDnsClientEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41480800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41480800"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41480800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'Update{8A69D345-D564-463C-AFF1-A69D9E530F96}' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42238800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42238800"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42238800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DefaultCookiesSetting' is 'Windows: Registry Value' to '4'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36974100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36974100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36974100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'DefaultGeolocationSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36977600" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36977600"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36977600"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'EnableMediaRouter' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41480900" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41480900"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41480900"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'BlockThirdPartyCookies' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979500" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979500"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979500"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'MetricsReportingEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36980000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36980000"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36980000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'ChromeCleanupReportingEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981600" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981600"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981600"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'BrowserSignin' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'TranslateEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'NetworkPredictionOptions' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982500" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982500"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982500"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SearchSuggestEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982600" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982600"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982600"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SpellCheckServiceEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'AlternateErrorPagesEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982800"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SyncDisabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36983900" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983900"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983900"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'SafeBrowsingForTrustedSourcesEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36984000" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36984000"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36984000"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'UrlKeyedAnonymizedDataCollectionEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41595200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41595200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41595200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'AllowDeletingBrowserHistory' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:41595300" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41595300"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41595300"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RemoteAccessHostFirewallTraversal' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36935700" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36935700"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36935700"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RemoteAccessHostAllowClientPairing' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36938200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36938200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36938200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'RemoteAccessHostAllowRelayedConnection' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36957200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36957200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36957200"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure '\d+' is 'Windows: Registry Value' to '.*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36969500" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36969500"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36969500"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'CloudPrintSubmitEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979800" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979800"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979800"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'ImportSavedPasswords' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979900" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979900"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979900"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'AutofillCreditCardEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981100" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981100"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981100"/>
+			</win:registry_test>
+	<win:registry_test check="all" check_existence="all_exist" comment="Ensure 'AutofillAddressEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36981200" version="1">
+				<win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981200"/>
+				<win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981200"/>
+			</win:registry_test>
+
+</tests>
+<objects>
+	<win:registry_object comment="Ensure 'RemoteAccessHostRequireCurtain' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36941600" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RemoteAccessHostRequireCurtain</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RemoteAccessHostAllowGnubbyAuth' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36945800" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RemoteAccessHostAllowGnubbyAuth</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RemoteAccessHostAllowUiAccessForRemoteAssistance' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36965000" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RemoteAccessHostAllowUiAccessForRemoteAssistance</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'BackgroundModeEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979400" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>BackgroundModeEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'PromptForDownloadLocation' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981500" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>PromptForDownloadLocation</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SavingBrowserHistoryDisabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981900" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SavingBrowserHistoryDisabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'Http09OnNonDefaultPortsEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982000" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>Http09OnNonDefaultPortsEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'ComponentUpdatesEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982300" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>ComponentUpdatesEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982400" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\EnableDeprecatedWebPlatformFeatures</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure 'ThirdPartyBlockingEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982900" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>ThirdPartyBlockingEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RunAllFlashInAllowMode' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983000" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RunAllFlashInAllowMode</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SuppressUnsupportedOSWarning' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983300" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SuppressUnsupportedOSWarning</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'EnableOnlineRevocationChecks' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983400" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>EnableOnlineRevocationChecks</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'WebDriverOverridesIncompatiblePolicies' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983600" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>WebDriverOverridesIncompatiblePolicies</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SafeSitesFilterBehavior' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SafeSitesFilterBehavior</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40224800" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\OverrideSecurityRestrictionsOnInsecureOrigin</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40225800" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\CertificateTransparencyEnforcementDisabledForLegacyCas</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40226000" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\CertificateTransparencyEnforcementDisabledForUrls</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40226200" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\CertificateTransparencyEnforcementDisabledForCas</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure 'DefaultPluginsSetting' is 'Windows: Registry Value' to '3'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36974700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DefaultPluginsSetting</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'DefaultNotificationsSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978000" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DefaultNotificationsSetting</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'DefaultWebBluetoothGuardSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DefaultWebBluetoothGuardSetting</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'DefaultWebUsbGuardSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DefaultWebUsbGuardSetting</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'ExtensionInstallBlacklist' is 'Windows: Registry Value' to '*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978300" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlacklist</win:key>
+			<win:name>1</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Windows: Registry Value' to 'extension'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457500" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\ExtensionAllowedTypes</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Windows: Registry Value' to 'hosted_app'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457600" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\ExtensionAllowedTypes</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Windows: Registry Value' to 'platform_app'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457700" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\ExtensionAllowedTypes</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Windows: Registry Value' to 'theme'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:40457800" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\ExtensionAllowedTypes</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure '1' is 'Windows: Registry Value' to '*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36978700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\NativeMessagingBlacklist</win:key>
+			<win:name>1</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>PasswordManagerEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>PasswordManagerEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'AuthSchemes' is 'Windows: Registry Value' to 'ntlm, negotiate'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>AuthSchemes</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'ProxyMode' is 'Windows: Registry Value' to 'auto_detect'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42238700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>ProxyMode</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'AllowOutdatedPlugins' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979600" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>AllowOutdatedPlugins</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'CloudPrintProxyEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>CloudPrintProxyEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SitePerProcess' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36980100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SitePerProcess</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'DownloadRestrictions' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981300" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DownloadRestrictions</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'DisableSafeBrowsingProceedAnyway' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981800" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DisableSafeBrowsingProceedAnyway</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RelaunchNotification' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RelaunchNotification</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RelaunchNotificationPeriod' is 'Windows: Registry Value' to '86400000'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RelaunchNotificationPeriod</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RequireOnlineRevocationChecksForLocalAnchors' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983500" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RequireOnlineRevocationChecksForLocalAnchors</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'ChromeCleanupEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41480100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>ChromeCleanupEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'ChromeCleanupEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239000" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>ChromeCleanupEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'BuiltInDnsClientEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41480800" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>BuiltInDnsClientEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'Update{8A69D345-D564-463C-AFF1-A69D9E530F96}' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42238800" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Update</win:key>
+			<win:name>Update{8A69D345-D564-463C-AFF1-A69D9E530F96}</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'DefaultCookiesSetting' is 'Windows: Registry Value' to '4'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36974100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DefaultCookiesSetting</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'DefaultGeolocationSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36977600" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>DefaultGeolocationSetting</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'EnableMediaRouter' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41480900" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>EnableMediaRouter</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'BlockThirdPartyCookies' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979500" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>BlockThirdPartyCookies</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'MetricsReportingEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36980000" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>MetricsReportingEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'ChromeCleanupReportingEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981600" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>ChromeCleanupReportingEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'BrowserSignin' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>BrowserSignin</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'TranslateEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>TranslateEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'NetworkPredictionOptions' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982500" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>NetworkPredictionOptions</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SearchSuggestEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982600" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SearchSuggestEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SpellCheckServiceEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SpellCheckServiceEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'AlternateErrorPagesEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982800" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>AlternateErrorPagesEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SyncDisabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36983900" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SyncDisabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'SafeBrowsingForTrustedSourcesEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36984000" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>SafeBrowsingForTrustedSourcesEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'UrlKeyedAnonymizedDataCollectionEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41595200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>UrlKeyedAnonymizedDataCollectionEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'AllowDeletingBrowserHistory' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:41595300" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>AllowDeletingBrowserHistory</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RemoteAccessHostFirewallTraversal' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36935700" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RemoteAccessHostFirewallTraversal</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RemoteAccessHostAllowClientPairing' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36938200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RemoteAccessHostAllowClientPairing</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'RemoteAccessHostAllowRelayedConnection' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36957200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>RemoteAccessHostAllowRelayedConnection</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure '\d+' is 'Windows: Registry Value' to '.*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36969500" version="1">
+				<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+				<win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\RemoteAccessHostClientDomainList</win:key>
+				<win:name operation="pattern match">\d+</win:name>
+			</win:registry_object>
+	<win:registry_object comment="Ensure 'CloudPrintSubmitEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979800" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>CloudPrintSubmitEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'ImportSavedPasswords' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979900" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>ImportSavedPasswords</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'AutofillCreditCardEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981100" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>AutofillCreditCardEnabled</win:name>
+		</win:registry_object>
+	<win:registry_object comment="Ensure 'AutofillAddressEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36981200" version="1">
+			<win:hive>HKEY_LOCAL_MACHINE</win:hive>
+			<win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+			<win:name>AutofillAddressEnabled</win:name>
+		</win:registry_object>
+
+</objects>
+<states>
+	<win:registry_state comment="Ensure 'RemoteAccessHostRequireCurtain' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36941600" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RemoteAccessHostAllowGnubbyAuth' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36945800" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RemoteAccessHostAllowUiAccessForRemoteAssistance' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36965000" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'BackgroundModeEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979400" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'PromptForDownloadLocation' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981500" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SavingBrowserHistoryDisabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981900" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'Http09OnNonDefaultPortsEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982000" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ComponentUpdatesEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982300" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ThirdPartyBlockingEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982900" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RunAllFlashInAllowMode' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983000" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SuppressUnsupportedOSWarning' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983300" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'EnableOnlineRevocationChecks' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983400" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'WebDriverOverridesIncompatiblePolicies' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983600" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SafeSitesFilterBehavior' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983700" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DefaultPluginsSetting' is 'Windows: Registry Value' to '3'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36974700" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">3</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DefaultNotificationsSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978000" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">2</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DefaultWebBluetoothGuardSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978100" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">2</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DefaultWebUsbGuardSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">2</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ExtensionInstallBlacklist' is 'Windows: Registry Value' to '*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978300" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">*</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure '\d+' is 'Windows: Registry Value' to 'extension'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457500" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">extension</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure '\d+' is 'Windows: Registry Value' to 'hosted_app'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457600" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">hosted_app</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure '\d+' is 'Windows: Registry Value' to 'platform_app'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457700" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">platform_app</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure '\d+' is 'Windows: Registry Value' to 'theme'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:40457800" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">theme</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure '1' is 'Windows: Registry Value' to '*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36978700" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">*</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239100" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'AuthSchemes' is 'Windows: Registry Value' to 'ntlm, negotiate'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979100" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">ntlm, negotiate</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ProxyMode' is 'Windows: Registry Value' to 'auto_detect'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42238700" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="equals">auto_detect</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'AllowOutdatedPlugins' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979600" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'CloudPrintProxyEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979700" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SitePerProcess' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36980100" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DownloadRestrictions' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981300" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DisableSafeBrowsingProceedAnyway' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981800" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RelaunchNotification' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983100" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">2</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RelaunchNotificationPeriod' is 'Windows: Registry Value' to '86400000'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="less than or equal">86400000</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RequireOnlineRevocationChecksForLocalAnchors' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983500" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ChromeCleanupEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41480100" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ChromeCleanupEnabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239000" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'BuiltInDnsClientEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41480800" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'Update{8A69D345-D564-463C-AFF1-A69D9E530F96}' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42238800" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DefaultCookiesSetting' is 'Windows: Registry Value' to '4'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36974100" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">4</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'DefaultGeolocationSetting' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36977600" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">2</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'EnableMediaRouter' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41480900" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'BlockThirdPartyCookies' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979500" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'MetricsReportingEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36980000" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ChromeCleanupReportingEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981600" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'BrowserSignin' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981700" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'TranslateEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'NetworkPredictionOptions' is 'Windows: Registry Value' to '2'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982500" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">2</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SearchSuggestEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982600" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SpellCheckServiceEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982700" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'AlternateErrorPagesEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36982800" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SyncDisabled' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36983900" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">1</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'SafeBrowsingForTrustedSourcesEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36984000" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'UrlKeyedAnonymizedDataCollectionEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41595200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'AllowDeletingBrowserHistory' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:41595300" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RemoteAccessHostFirewallTraversal' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36935700" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RemoteAccessHostAllowClientPairing' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36938200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'RemoteAccessHostAllowRelayedConnection' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36957200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure '\d+' is 'Windows: Registry Value' to '.*'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36969500" version="1">
+					<win:type>reg_sz</win:type>
+					<win:value datatype="string" operation="pattern match">.*</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'CloudPrintSubmitEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979800" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'ImportSavedPasswords' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979900" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'AutofillCreditCardEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981100" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+	<win:registry_state comment="Ensure 'AutofillAddressEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36981200" version="1">
+					<win:type>reg_dword</win:type>
+					<win:value datatype="int" operation="equals">0</win:value>
+				</win:registry_state>
+
+</states>
+</oval_definitions>

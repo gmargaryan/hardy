@@ -1,0 +1,10 @@
+check_list:
+- section: "1 Initial Setup\n 1.1 Filesystem Configuration 1.1.1 Disable unused filesystems"
+  description:
+  check:
+  - name: "Ensure_sticky_bit_is_set_on_all_world-writable_directories"
+    description: "1.1.21 Ensure sticky bit is set on all world-writable directories"
+    score: 1
+    rule: "1.1.21"
+    level: 1
+    status: "yes"

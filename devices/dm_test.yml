@@ -1,0 +1,24 @@
+hosts:
+- ip_address: '10.251.1.7'
+  status: 'yes'
+  device_type: 'cisco_xe'
+  port: '22'
+  software_version:
+  benchmarks:
+    check_list: 'Cisco_IOS_15_Benchmark_v4.0.0-check-list.yml'
+    check_output: 'Cisco_IOS_15_Benchmark_v4.0.0-check-output.yml'
+    scripts: 'Cisco_IOS_15_Benchmark_scripts.py'
+  interfaces:
+    trust: 
+    - name:
+    untrust:
+    - name:
+    - name:
+    internet:
+    - name: Gi0/0/0.100
+    - name: Gi0/0/2.101
+    dmz:
+    - name:
+    mgmt:
+    - name:
+

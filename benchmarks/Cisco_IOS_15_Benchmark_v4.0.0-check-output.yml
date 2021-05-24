@@ -1,0 +1,867 @@
+# 1. Management Plane
+## 1.1 Local Authentication, Authorization and Accounting (AAA) Rules"
+
+Enable_aaa_new-model:
+  dependency:
+  script: 
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl aaa new-model'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa new-model'
+Enable_aaa_authentication_login:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl aaa authentication login' 
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication login.*'
+Enable_aaa_authentication_enable_default:
+  script:
+  dependency:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl aaa authentication enable'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa authentication enable default .*'
+Set_login_authentication_for_line_con_0:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line con '
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'login authentication.*'
+Set_login_authentication_for_line_tty:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line tty '
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'login authentication.*'
+Set_login_authentication_for_line_vty:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line vty '
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'login authentication.*'
+Set_aaa_accounting_to_log_all_privileged_use_commands_using_commands_15:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl aaa accounting commands'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting commands 15.*'
+Set_aaa_accounting_connection:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl aaa accounting connection'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting connection .*'
+Set_aaa_accounting_exec:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl aaa accounting exec'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting exec .*'
+Set_aaa_accounting_network:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl aaa accounting network'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting network .*'
+Set_aaa_accounting_system:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl aaa accounting system'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'aaa accounting system .*'
+
+## 1.2 Access Rules
+
+Set_privilege_1_for_local_users:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'show run | incl username.*privilege'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'username .+ privilege [2-9]'
+    - pattern: 'username .+ privilege 1[0-5]'
+Set_transport_input_ssh_for_line_vty_connections:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line vty'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'transport input ssh'
+Set_no_exec_for_line_aux_0:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line aux'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'no exec'
+Set_access-class_for_line_vty:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line vty'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'access-class \w+ in'
+Create_access-list_for_use_with_line_vty:
+  dependency:
+  script: 'Create_acl_for_use_with_line_vty'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+    logic:
+Set_exec-timeout_to_less_than_or_equal_to_10_minutes_for_line_aux_0:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line aux'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'exec-timeout (10|\d) \d{1,2}' 
+Set_exec-timeout_to_less_than_or_equal_to_10_minutes_line_console_0:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line con'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'exec-timeout (10|\d) \d{1,2}'
+Set_exec-timeout_less_than_or_equal_to_10_minutes_line_tty:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line tty'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'exec-timeout (10|\d) \d{1,2}'
+Set_exec-timeout_to_less_than_or_equal_to_10_minutes_line_vty:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line vty'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'exec-timeout (10|\d) \d{1,2}'
+Set_transport_input_none_for_line_aux_0:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec line aux'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'transport input none'
+
+## 1.3 Banner Rules
+
+Set_the_banner-text_for_banner_exec:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | beg banner exec'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '^$'
+Set_the_banner-text_for_banner_login:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | beg banner login'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '^$'
+Set_the_banner-text_for_banner_motd:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | beg banner motd'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: '^$'
+
+## 1.4 Password Rules
+
+Set_password_for_enable_secret:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl enable secret'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'enable secret.*'
+Enable_service_password-encryption:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl service password-encryption'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'service password-encryption.*'
+Set_username_secret_for_all_local_users:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl username.*password'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '^$'
+
+## 1.5 SNMP Rules
+
+Set_no_snmp-server_to_disable_SNMP_when_unused:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show snmp community'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'no snmp-server'
+Unset_private_for_snmp-server_community:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec snmp'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'snmp-server community public'
+Unset_public_for_snmp-server_community:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec snmp'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'snmp-server community private'
+Do_not_set_RW_for_any_snmp-server_community:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec snmp'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'community .* RW'
+Set_the_ACL_for_each_snmp-server_community:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'show run | incl snmp'
+    logical_exp_ptrn: 'or'
+    patterns:
+    - pattern: 'snmp-server community .* R[OW](\n|$)'
+Create_an_access-list_for_use_with_SNMP:
+  dependency:
+  script: 'Create_an_acl_for_use_with_SNMP'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+    logic:
+Set_snmp-server_host_when_using_SNMP:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl snmp-server host'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server host .*'
+Set_snmp-server_enable_traps_snmp:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec snmp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server enable traps snmp.*'
+Set_priv_for_each_snmp-server_group_using_SNMPv3:
+  dependency:
+  script:
+  logical_exp_cmd: 'not(res[0])'
+  commands:
+  - command: 'show run | sec snmp-server group'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server group \w+ v3 (auth|noauth)'
+Require_aes_128_as_minimum_for_snmp-server_user_when_using_SNMPv3:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec snmp-server user'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'snmp-server user \w+ \w+ v3 auth sha .* priv aes 128 .* \w+'
+
+# 2. Control Plane 
+## 2.1 Gloabal Service Rules 
+### 2.1.1 Setup SSH
+
+Set_the_hostname:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl hostname'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'hostname .*'
+Set_the_ip_domain_name:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl domain name'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ip domain name .*'
+Set_modulus_to_greater_than_or_equal_to_2048_for_crypto_key_generate_rsa:
+  dependency:
+  script: 'manual'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 
+Set_seconds_for_ip_ssh_timeout:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show ip ssh | incl Authentication timeout:'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Authentication timeout: \d+ secs;.*'
+Set_maximimum_value_for_ip_ssh_authentication-retries:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show ip ssh | incl Authentication retries:'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.*Authentication retries: \d+'
+Set_version_2_for_ip_ssh_version:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show ip ssh | incl SSH Enabled'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'version 2'
+Set_no_cdp_run:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show cdp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.*CDP is not enabled'
+Set_no_ip_bootp_server:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl bootp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'no ip bootp server'
+Set_no_service_dhcp:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec dhcp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'no service dhcp'
+Set_no_ip_identd:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | incl identd'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '^$'
+Set_service_tcp-keepalives-in:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec service'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'service tcp-keepalives-in'
+Set_service_tcp-keepalives-out:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec service'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'service tcp-keepalives-out'
+Set_no_service_pad:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec service'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'no service pad'
+
+## 2.2 Logging Rules
+
+Set_logging_on:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec logging'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'no logging on'
+Set_buffer_size_for_logging_buffered:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec logging'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging buffered \d+'
+Set_logging_console_critical:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec logging'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging console critical'
+Set_IP_address_for_logging_host:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec logging'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging host\s(ipv6\s)?[\d+|\w+|\.|:]+'
+Set_logging_trap_informational:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh log | incl Trap'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'Trap logging:\s+level\s(informational|debugging)'
+Set_service_timestamps_debug_datetime:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec service'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'service timestamps debug datetime.*'
+Set_logging_source_interface:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec logging'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'logging source-interface.*'
+
+## 2.3 NTP Rules 
+### 2.3.1 Require Encryption Keys for NTP
+
+Set_ntp_authenticate:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec ntp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp authenticate'
+Set_ntp_authentication-key:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | sec ntp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp authentication-key .* md5 .*'
+Set_ip_address_for_ntp_server:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | include ntp authentication-key'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp authentication-key .*'
+Set_the_ntp_trusted-key:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | include ntp trusted-key'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp trusted-key .*'
+Set_key_for_each_ntp_server:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | include ntp serever'
+    logical_exp_ptrn: 'not(res[0])'
+    patterns:
+    - pattern: 'ntp server [\d\.]+(\n$)'
+Set_ip_address_for_ntp_server:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'show run | include ntp serever'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp server [\d\.]+'
+
+## 2.4 Loopback Rules
+
+Create_a_single_interface_loopback:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh ip int brief | incl Loopback'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '.+$'
+Set_AAA_source-interface:
+  dependency:
+  script:
+  logical_exp_cmd: 'or'
+  commands:
+  - command: 'sh run | incl radius source'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ip radius source-interface [Ll]oopback'
+  - command: 'sh run | incl tacacs source'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ip tacacs source-interface [Ll]oopback'
+Set_ntp_source_to_Loopback_Interface:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl ntp source'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ntp source [Ll]oopback'
+Set_ip_tftp_source-interface_to_the_Loopback_Interface:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl tftp source-interface'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'ip tftp source-interface [Ll]oopback'
+
+# 3. Data Plane
+## 3.1 Routing Rules
+
+Set_no_ip_source-route:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | incl ip source-route'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'no ip source-route'
+Set_no_ip_proxy-arp:
+  dependency:
+  script: 'Set_no_ip_proxy_arp'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+Set_no_interface_tunnel:
+  dependency:
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh ip int brief | incl unnel'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: '^$'
+Set_ip_verify_unicast_source_reachable-via:
+  dependency:
+  script: 'Set_ip_verify_unicast_source_reachable_via'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+
+## 3.2 Border Router Filtering
+
+Set_ip_access-list_extended_to_Forbid_Private_Source_Addresses_from_External_Networks:
+  dependency:
+  script: 'Set_ip_acl_extended_to_Forbid_Private_Source_Addresses_from_External_Networks'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+Set_inbound_ip_access-group_on_the_External_Interface:
+  dependency:
+  script: 'Set_inbound_ip_access_group_on_the_External_Interface'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+
+## 3.3 Neighbor Authentication
+###  3.3.1 Require EIGRP Authentication if Protocol is Used
+
+Set_key_chain_eigrp:
+  dependency: "if_eigrp_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec key chain'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'key chain .+'
+Set_key_eigrp:
+  dependency: "if_eigrp_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec key chain'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'key \d+'
+Set_key-string_eigrp:
+  dependency: "if_eigrp_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec key chain'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'key-string .+'
+Set_address-family_ipv4_autonomous-system:
+  dependency: "if_eigrp_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec router eigrp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'address-family ipv4 autonomous-system \d+'
+Set_af-interface_default:
+  dependency: "if_eigrp_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec router eigrp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'af-interface default'
+Set_authentication_key-chain:
+  dependency: "if_eigrp_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec router eigrp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'authentication key-chain'
+Set_authentication_mode_md5:
+  dependency: "if_eigrp_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec router eigrp'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'authentication mode '
+Set_ip_authentication_key-chain_eigrp:
+  dependency: "if_eigrp_configured"
+  script: 'Set_ip_authentication_key_chain_eigrp'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+Set_ip_authentication_mode_eigrp:
+  dependency: "if_eigrp_configured"
+  script: 'Set_ip_authentication_mode_eigrp'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+
+### 3.3.2 Require OSPF Authentication if Protocol is Used
+
+Set_authentication_message-digest_for_OSPF_area:
+  dependency: "if_ospf_configured"
+  script: 'Set_authentication_message_digest_for_OSPF_area'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+Set_ip_ospf_message-digest-key_md5:
+  dependency: "if_ospf_configured"
+  script: 'Set_ip_ospf_message_digest_key_md5'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+
+### 3.3.3 Require RIPv2 Authentication if Protocol is Used
+
+Set_key_chain_rip:
+  dependency: "if_rip_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec key chain'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'key chain .+'
+Set_key_rip:
+  dependency: "if_rip_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec key chain'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'key \d+'
+Set_key-string_rip:
+  dependency: "if_rip_configured"
+  script:
+  logical_exp_cmd: 'and'
+  commands:
+  - command: 'sh run | sec key chain'
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern: 'key-string .+'
+Set_ip_rip_authentication_key-chain:
+  dependency: "if_rip_configured"
+  script: 'Set_ip_rip_authentication_key_chain'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+Set_ip_rip_authentication_mode_to_md5:
+  dependency: "if_rip_configured"
+  script: 'Set_ip_rip_authentication_mode_to_md5'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
+
+### 3.3.4 Require BGP Authentication if Protocol is Used
+
+Set_neighbor_password:
+  dependency: "if_bgp_configured"
+  script: 'Set_neighbor_password'
+  logical_exp_cmd: 'and'
+  commands:
+  - command:
+    logical_exp_ptrn: 'and'
+    patterns:
+    - pattern:
